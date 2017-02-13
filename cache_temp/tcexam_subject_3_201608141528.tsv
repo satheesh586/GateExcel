@@ -1,0 +1,82 @@
+M=MODULE	module_enabled	module_name
+S=SUBJECT	subject_enabled	subject_name	subject_description
+Q=QUESTION	question_enabled	question_description	question_explanation	question_type	question_difficulty	question_position	question_timer	question_fullscreen	question_inline_answers	question_auto_next
+A=ANSWER	answer_enabled	answer_description	answer_explanation	answer_isright	answer_position	answer_keyboard_key
+
+M	1	Theory of Computation
+S	1	TOC - 1	Introduction to Finite Automata, DFA
+Q	1	Consider the DFA with the following transition table for M= ({A, B, C,D},{0,1},δ, A, {C})\r\n[object]TOC Topic Test 1/Q8-question.png[/object:212:170:]\r\nDescribe the language accepted by the DFA.		S	2		0	0	0	0
+A	1	L = {w|w starts with 1 and ends with 0}	From the given transition table we can draw the DFA as follows:\r\n[object]TOC Topic Test 1/Q8-explanation.png[/object:402:220:]\r\nClearly we can see that D is the dead state to which there is a transition from A over the symbol ‘0’. This means that the strings starting with ‘0’ will not be accepted by the DFA. So, all the strings should be start with 1.\r\nThere is a transition from B to C where C is a final state and there is a transition from C to B over 1. This means that all strings in the language should end with 0.\r\n∴L = {w|w is a string starting with 1 and ending with 0}	1		
+A	1	L = {w|w starts with 1 and ends with even no of 0’s}		0		
+A	1	L = {w|w has even number of 1’s and starts with 1}		0		
+A	1	L = {w|w is any string that contains 10}		0		
+Q	1	Find the number of states in the minimal DFA accepting the language: \r\nL = {awa: w ∈ {a, b}[sup]*[/sup]} for the given ∑ = {a, b}		S	2		0	0	0	0
+A	1	4	The set of strings in L are \r\nL= {aa, aaa, aba, aaaa, aaba, abaa, abba,…….}\r\nThe DFA should accept the set of strings starting and ending with ‘a’ and string length should be at least 2.\r\n[object]TOC Topic Test 1/Q6.jpg[/object:262:191:]	1		
+A	1	2		0		
+A	1	3		0		
+A	1	5		0		
+Q	1	Find the number of states in the minimal DFA that accepts all the strings on {0,1}, expect those containing the substring 001.		S	2		0	0	0	0
+A	1	4	∑={0,1}*\r\n\tL={∈,0,1,00,01,10,11,000,010,011,100,101,100,111,…}\r\nNote that the strings containing ‘001’ as a substring are not accepted by the DFA.\r\nFirst, we construct a DFA for the complement of language L, L' that accepts all the strings containing 001 as substring and then we complement it to get the DFA for L.\r\n[object]TOC Topic Test 1/Q15-exp1.png[/object:433:155:]\r\nThis DFA accepts all the strings over {0, 1} where each string containing 001 as substring.\r\nComplement of the above DFA is obtained by interchanging final and initial states.\r\n[object]TOC Topic Test 1/Q15-exp2.png[/object:417:151:]\r\n->See that strings like 100100, 100001 are not accepted by the DFA.	1		
+A	1	3		0		
+A	1	5		0		
+A	1	6		0		
+Q	1	Find the number of states merged during computing minimal form of the DFA given below that accepts the set of binary strings whose integer equivalent is congruent to 4 mod 10.\r\n[u]Transition Table:[/u] \r\n[object]TOC Topic Test 1/Q10-question.png[/object:144:206:]		S	2		0	0	0	0
+A	1	4	Σ={0,1}\r\nBinary number ≡ 4(mod 10)\r\nIn the given transition table, there are 10 states and q4 is the final state in DFA.\r\nObserve that there are equal states that are to be merged.\r\nq0 is equal to q5, so merge them. ①\r\nq1 is equal to q6, so merge. ②\r\nq2 is equal to q7, so merge. ③\r\nq3 is equal to q8, so merge. ④\r\n[object]TOC Topic Test 1/Q10-explanation.png[/object:247:157:]\r\nThere are no more equivalent states in the above transition table.\r\n∴This is minimal.\r\n∴4 states were merged while computing minimal DFA.	1		
+A	1	10		0		
+A	1	6		0		
+A	1	8		0		
+Q	1	Given below is the DFA accepting the language over the alphabet {0,1}, when interpreted as a binary integer is a multiple of 5. Find the missing transitions.\r\n[object]TOC Topic Test 1/Q14-question.png[/object:474:139:]		S	2		0	0	0	0
+A	1	δ(q[sub]1[/sub],1)=q[sub]3[/sub],δ(q[sub]4[/sub],1)=q[sub]4[/sub]	We can find the missing transitions easily by constructing the transition table:\r\n[object]TOC Topic Test 1/Q14-exp.png[/object:118:124:]\r\nTherefore, the missing transitions are:\r\nδ(q[sub]1[/sub],1)=q[sub]3[/sub]\r\nδ(q[sub]4[/sub],1)=q[sub]4[/sub]	1		
+A	1	δ(q[sub]1[/sub],1)=q[sub]0[/sub], δ(q[sub]4[/sub],1)=q[sub]2[/sub]		0		
+A	1	δ(q[sub]1[/sub],0)=q[sub]3[/sub], δ(q[sub]4[/sub],1)=q[sub]4[/sub]		0		
+A	1	δ(q[sub]1[/sub],1)=q[sub]1[/sub], δ(q[sub]4[/sub],1)=q[sub]2[/sub]		0		
+Q	1	How many 3 states DFA’s with designated initial state can be constructed over Σ = {a, b}?		S	2		0	0	0	0
+A	1	5832	Σ={a,b}\r\nQ={q[sub]0[/sub],q[sub]1[/sub],q[sub]2[/sub] }\r\nLet q[sub]0[/sub] be the initial state.\r\n[object]TOC Topic Test 1/Q12-explanation.png[/object:628:180:]\r\n∴8 types of DFA’s possible for q0 as initial state.\r\nIn each FA, there can be 3 possible transitions from each state over each symbol.\r\n[object]TOC Topic Test 1/Q12-explanation_2.png[/object:118:75:]\r\n->This gives 3[sup]6[/sup] combinations.\r\n∴Total no. of DFA’s = No. of types × No. of DFA’s in each type = 8 × 3[sup]6[/sup] = 5832.\r\n\r\n[u]Note:[/u]\r\nIf |Σ| = m, |Q| = n, then \r\n[olist]\r\n[li]Number of types of DFA's is 2[sup]n[/sup][/li]\r\n[li]Number of DFA's of each type = n[sup]mn[/sup][/li]\r\n[li]Total number of DFA's = 2[sup]n[/sup].n[sup]mn[/sup][/li]\r\n[/olist]	1		
+A	1	4096		0		
+A	1	5436		0		
+A	1	4832		0		
+Q	1	Let L[sub]1[/sub]=a[sup]*[/sup]b[sup]*[/sup], L[sub]2[/sub]={aabb} and L[sub]3[/sub] = [i]Prefix[/i](L[sub]1[/sub][sup]*[/sup]∩L[sub]2[/sub]). Find the number of strings in L[sub]3[/sub]?		S	1		0	0	0	0
+A	1	5	L[sub]1[/sub] = a[sup]*[/sup]b[sup]*[/sup] ⟹ L[sub]1[/sub][sup]*[/sup] = (a[sup]*[/sup]b[sup]*[/sup])[sup]*[/sup] = (a+b)[sup]*[/sup]\r\nL[sub]2[/sub] = {aabb}\r\nL[sub]1[/sub][sup]*[/sup]∩L[sub]2[/sub] = (a+b)[sup]*[/sup]∩{aabb} = {aabb}\r\nL[sub]3[/sub] = [i]Prefix[/i](L[sub]1[/sub][sup]*[/sup]∩L[sub]2[/sub]) = {ϵ,a,aa,aab,aabb}\r\n∴ There are 5 strings in L[sub]3[/sub].	1		
+A	1	3		0		
+A	1	4		0		
+A	1	6		0		
+Q	1	The number of equivalence classes in the following DFA is _________.\r\n[object]TOC Topic Test 1/Q13-question.png[/object:490:277:]		S	2		0	0	0	0
+A	1	3	Finding the number of equivalence classes is nothing but finding the number of states in min DFA.\r\nWe remove all the unreachable states and the corresponding transitions. \r\nThere are no unreachable states in the given DFA.\r\n0-equi [0 1 2 3 4 5][6 7 8 9]\r\n1-equi [0 1 3 5][2 4][6 7 8 9]\r\n2-equi [0 1 3 5][2 4][6 7 8 9]\r\nLet A - [0 1 3 5], B - [2 4], C - [6 7 8 9]\r\n∴There are 3 equivalence classes and the minimal finite automata is\r\n[object]TOC Topic Test 1/Q13-exp.png[/object:320:102:]	1		
+A	1	5		0		
+A	1	6		0		
+A	1	4		0		
+Q	1	The number of states in the minimal finite automata accepting set of binary numbers when interpreted as integers is congruent to 0 mod 3 is _____. Consider ϵ is accepted by the DFA.		S	1		0	0	0	0
+A	1	3	The transition table for this is as below:\r\n[object]TOC Topic Test 1/Q5-1.jpg[/object:118:75:]\r\nwhere q[sub]0[/sub] is the initial and final state.\r\nThe corresponding DFA is\r\n[object]TOC Topic Test 1/Q5-2.jpg[/object:290:109:]	1		
+A	1	4		0		
+A	1	5		0		
+A	1	2		0		
+Q	1	The number of states in the minimal finite automata accepting the language L consisting of set of all strings of even length Σ={a,b} is _____.		S	1		0	0	0	0
+A	1	2	DFA for L={ω│|ω|  mod 2=0},Σ={a,b}\r\n[object]TOC Topic Test 1/Q3.jpg[/object:237:107:]	1		
+A	1	3		0		
+A	1	4		0		
+A	1	5		0		
+Q	1	The number of states in the minimal finite automata accepting the language L of set of all strings containing exactly one ‘a’ over the alphabet Σ={a,b} is		S	1		0	0	0	0
+A	1	3	Σ={a,b}\r\nDFA for L_1={ω│ω has exactly one 'a'},Σ={a,b}\r\n[object]TOC Topic Test 1/Q4.jpg[/object:243:197:]	1		
+A	1	4		0		
+A	1	5		0		
+A	1	6		0		
+Q	1	The number of substrings and trivial substrings in the string “ALGORITHM” over the alphabet Σ = {A-Z}		S	1		0	0	0	0
+A	1	46, 2	Given string w = ALGORITHM\r\nLength of the string w is |w| = 9\r\nWe know that if ω is a string with distinct symbols and the length of the string is n, then\r\nNumber of substrings = (Σn)+1 = [mathml]<mfrac><mrow><mi>n</mi><mo>(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow><mn>2</mn></mfrac><mo>+</mo><mn>1</mn>[/mathml]\r\n∴No.of substrings in w = [mathml]<mfrac><mrow><mn>9</mn><mo>(</mo><mn>10</mn><mo>)</mo></mrow><mn>2</mn></mfrac><mo>+</mo><mn>1</mn> = 46[/mathml]\r\nNo. of trivial substrings is 2; {ϵ, ALGORITHM}	1		
+A	1	2, 44		0		
+A	1	46, 44		0		
+A	1	44, 2		0		
+Q	1	What is the language accepted by the following DFA. Σ={0,1}? \r\n[object]TOC Topic Test 1/Q9-question.png[/object:204:174:]		S	2		0	0	0	0
+A	1	Set of all strings starting with 0 and have even number of switchings (from 0 to 1 or 1 to 0, for example, 101 has 2 switchings) or starting with a 1 and have odd numbers of switchings.	It accepts set of binary strings either start with a 0 and have an even number of switchings from 0 to 1 or from 1 to 0) or start with a 1 and have an odd number of switchings \r\ni.e. It accepts strings like {0,010,01110,01010,10,1110,1111010,……..}\r\nHere, for string 010, there are two switchings:\r\n[object]TOC Topic Test 1/Q9-exp.jpg[/object:214:178:]\r\nNote: We do not consider moving from 0 to 0 or 1 to 1 as a switching.	1		
+A	1	Set of all strings ending with zero.		0		
+A	1	Set of all strings starting and ending with zero.		0		
+A	1	Set of all strings starting with 0 and have odd number of switchings (from 0 to 1 or 1 to 0, for example, 101 has 2 switchings) or starting with a 1 and have even no. of switchings.		0		
+Q	1	Which one of the following is a DFA that accepts set of ternary strings, Σ={0,1,2} whose integer equivalent is congruent to 2(mod 5) ?		S	2		0	0	0	0
+A	1	[object]TOC Topic Test 1/Q11-option_2.png[/object:259:249:]	Σ={0,1,2}\r\nSince integer equivalent is congruent to 2(mod 5), there are 5 states and q2 is the final state.\r\nRemember, we compute integer equivalent for the ternary string with base 3.\r\nFor example, ternary string 10 = 3[sup]1[/sup]×1+3[sup]0[/sup]×0=3 ≡ 3 mod 5 = 3\r\nfor ternary string 12 = 3[sup]1[/sup]×1 + 3[sup]0[/sup]×2 = 5 ≡ 5 mod 5 = 0\r\nfor ternary string 210 = 3[sup]2[/sup]×2 + 3[sup]1[/sup]×1 + 3[sup]0[/sup]×0 = 22 ≡ 22 mod 5 = 2\r\nThis can be easily done by transition table without drawing the DFA.\r\n[object]TOC Topic Test 1/Q11-explanation_1.png[/object:172:113:]\r\nThe DFA corresponding to the transition table:\r\n[object]TOC Topic Test 1/Q11-option_2.png[/object:274:217:]	1		
+A	1	[object]TOC Topic Test 1/q11-option_3.png[/object:260:249:]		0		
+A	1	[object]TOC Topic Test 1/Q11-option_4.png[/object:254:243:]		0		
+A	1	[object]TOC Topic Test 1/Q11-option_1.png[/object:264:245:]		0		
+Q	1	Which one of the following is the correct minimal DFA for the language accepting set of strings with even number of a’s and each a is followed by at least one b, over ∑={a,b}?		S	2		0	0	0	0
+A	1	[object]TOC Topic Test 1/Q7-option_4.jpg[/object:402:228:]	∑ = {a, b}\r\nL = {w| w has even number of a’s and each a is followed by at least one b}\r\n= {∈,b,bb,babba,abbab,…}\r\nDFA for strings in which each a is being followed by at least one b:\r\n[object]TOC Topic Test 1/Q7-exp1.jpg[/object:429:120:]\r\nDFA for strings with even number of a’s \r\n[object]TOC Topic Test 1/Q5-1.jpg[/object:118:75:]\r\nThe cross product of these two DFA gives the DFA accepting language L.\r\n[object]TOC Topic Test 1/Q7-exp3.jpg[/object:415:292:]\r\nMinimizing this will merge CD & CE ⇓ \r\n[object]TOC Topic Test 1/Q7-exp4.jpg[/object:508:289:]\r\n\r\nYou can even consider DFA’s given in options by checking if they accept the strings in the language or not.\r\ni.e., for example,\r\n[olist]\r\n[li]∈ is in the language but D1 and D2 does not accept ∈.[/li]\r\n[li]Strings like baab, where two a’s appear consecutively are accepted by D3 but not in the language.[/li]\r\n[/olist]	1		
+A	1	[object]TOC Topic Test 1/Q7-option_1.jpg[/object:349:214:]		0		
+A	1	[object]TOC Topic Test 1/Q7-option_2.jpg[/object:344:214:]		0		
+A	1	[object]TOC Topic Test 1/Q7-option_3.png[/object:387:238:]		0		

@@ -1,0 +1,17 @@
+M=MODULE	module_enabled	module_name
+S=SUBJECT	subject_enabled	subject_name	subject_description
+Q=QUESTION	question_enabled	question_description	question_explanation	question_type	question_difficulty	question_position	question_timer	question_fullscreen	question_inline_answers	question_auto_next
+A=ANSWER	answer_enabled	answer_description	answer_explanation	answer_isright	answer_position	answer_keyboard_key
+
+M	1	Compiler Design
+S	1	CD Subject Test - 3 Common Q 2	Compiler Design – 3 (Subject Test)
+Q	1	For the grammar:\r\nS → Aa | bAc | dc | bda\r\nA → d\r\n\tWhat will be the entries E1, E2, E3, E4 respectively in the CLR(1) / LALR(1) parsing table?\r\n[object]CD Subject Test - 3/Q16.PNG[/object:440:314:]\r\nNote: The blank entries in the options is denoted as “_”		S	2		0	0	0	0
+A	1	7, S[sub]9[/sub], S[sub]10[/sub], r[sub]4[/sub]	Consider augmented grammar:\r\n[object]CD Subject Test - 3/Q16_exp_1.PNG[/object:133:160:]\r\nCreate cannonical collection of LR(1) items:\r\n[object]CD Subject Test - 3/Q16_exp_2.PNG[/object:570:468:]\r\n[object]CD Subject Test - 3/Edit_8.png[/object:572:393:]\r\nLooking at figure we can see, the states I5 and I8 contain final and non final items but there is no SR or RR conflict as lookahead in the final item is not the same as terminal next to dot in the non final item. So no conflicts. This grammar is an LR(1) grammar. There are no states differing by lookaheads, hence it is also LALR(1). The parsing table for CLR(1) and LALR(1) is as shown in table.\r\n\tThis grammar is not LL(1), not LR(1), not SLR(1) but it is CLR(1) and LALR(1) grammar.       \t\r\n\tCLR(1) / LALR(1) parsing table:	1		
+A	1	_, S[sub]9[/sub], S[sub]10[/sub], r[sub]4[/sub]		0		
+A	1	S[sub]11[/sub], r[sub]2[/sub], S[sub]11[/sub], _		0		
+A	1	7, _, S[sub]5[/sub], r[sub]1[/sub]		0		
+Q	1	Consider the following grammar:\r\nS → Aa | bAc | dc | bda\r\nA → d\r\n\tGiven below is a partial cannonical collection of LR(1) items:\t\r\n[object]CD Subject Test - 3/Q15.PNG[/object:448:321:]           \r\nFind the value of missing states I4, I8    ?		S	2	1	0	0	0	0
+A	1	I4: S → b . Ac, $\r\n     S → b . dw, $\r\n     S → . d, c\r\nI8: S → bd . w, $\r\n     A → d . , c	The partial canonical collection of LR(1) items is given below:\r\n[object]CD Subject Test - 3/Edit_6.png[/object:498:389:]	1		
+A	1	I4: S → b . Ac, $\r\n     S → b . da, $\r\nI8: S → bd . a, $		0		
+A	1	I4: S → bAc ., $\r\nI8: S → b . dw, $		0		
+A	1	I4: → . S, $\r\n     S → b . Ac, $\r\n     S → b . da, $\r\nI8: S → Aw . , $		0		

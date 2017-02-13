@@ -1,0 +1,142 @@
+M=MODULE	module_enabled	module_name
+S=SUBJECT	subject_enabled	subject_name	subject_description
+Q=QUESTION	question_enabled	question_description	question_explanation	question_type	question_difficulty	question_position	question_timer	question_fullscreen	question_inline_answers	question_auto_next
+A=ANSWER	answer_enabled	answer_description	answer_explanation	answer_isright	answer_position	answer_keyboard_key
+
+M	1	Databases
+S	1	DBMS Subject Test 1	Databases – 1
+Q	1	A schedule S: R[sub]1[/sub](A); W[sub]2[/sub](A); R[sub]1[/sub](A); commit[sub]1[/sub]; Rollback[sub]2[/sub]. The above schedule is		S	1		0	0	0	0
+A	1	Recoverable schedule		0	1	
+A	1	Cascading roll back schedule		0	2	
+A	1	Non recoverable schedule	Explanation:\r\n\tGiven schedule is\r\n\t[object]DBMS Subject Test 1/Q11_exp.PNG[/object:231:179:]\r\n\r\n\tThe above schedule is not recoverable since dirty read happens (Transaction 1 read uncommitted data A written by Transaction 2 ) and commits before Transaction 2 commits. Here After Transaction 1 commited, Transaction 2 rolled back makes the schedule non recoverable.	1	3	
+A	1	Strict schedule		0	4	
+Q	1	Consider am employee relation as \r\nemployee(eid, name, age, sex, supervisor_id) with eid as primary key. \r\nWhich of the following is the correct SQL query for retrieving all employee names and their age who do not have supervisors.		S	1		0	0	0	0
+A	1	Select name, age from employee where supervisor_id = NULL;	In SQL we cannot use “=” to compare with NULL values because SQL treats every NULL as distinct from other NULL value. For this purpose we use “IS NULL” predicate.	1	1	
+A	1	Select name, age from employee where supervisor_id IS NULL;		0	2	
+A	1	Select name, age from employee where supervisor_id IS NOT NULL;		0	3	
+A	1	None of the above		0	4	
+Q	1	Consider table STUDENT([u]Id[/u], Name, Marks, Sex) has 100 rows. How many rows will be retrieved if we execute the following query: \r\n“SELECT * FROM STUDENT WHERE NULL = NULL”;		S	1		0	0	0	0
+A	1	100 rows are selected		0	1	
+A	1	Error in SQL statement		0	2	
+A	1	Zero rows are selected	Given query: SELECT * FROM STUDENT WHERE NULL = NULL;\r\n\tHere selection condition NULL = NULL will be false because each NULL is distinct for every rows. Therefore the query will retrieve zero rows.	1	3	
+A	1	All rows are selected where “NULL” exist.		0	4	
+Q	1	Consider the following 2 relations R[sub]1[/sub](A, B, C) and R[sub]2[/sub](C, D, E) with primary key A and C respectively. The relation R[sub]1[/sub] contains 500 tuples and R[sub]2[/sub] contains 250 tuples then the minimum and the maximum size of the left outer join r[sub]1[/sub]⟕r[sub]2[/sub] is ________.		S	1		0	0	0	0
+A	1	250,500		0	1	
+A	1	0,250		0	2	
+A	1	500,0		0	3	
+A	1	500, 500	In left outer join, all matched rows as well as unmatched rows of left hand side table will present in output. So, all the rows in left hand side should present in output and also the joining attribute “C” is the primary key for  relation R[sub]2[/sub] , this means each tuple in the  the left hand side relation can be joined to atmost one tuple in rlation R[sub]2[/sub]. So, the maximum number of tuples in join r[sub]1[/sub]⟕r[sub]2[/sub] is 500.	1	4	
+Q	1	Consider the following entity relationship diagram(ERD), where two entities E[sub]1[/sub] and E[sub]2[/sub] have a relation R of cardinality M:N\r\n[object]DBMS Subject Test 1/Q3.PNG[/object:241:64:]                           \r\nThe attributes of E1 are A, B and C where A is the key attribute. The attributes of E2 are D, E and F where D is the key attribute and F is the multi valued attribute. Relation R has an attribute G, a relational database containing minimum number of tables with each table satisfying the requirements of third normal form (3NF) is designed from the above ERD. The minimum number of tables in database is		S	2		0	0	0	0
+A	1	1		0	1	
+A	1	2		0	2	
+A	1	3		0	3	
+A	1	4	Conversion of given ER diagram into relation:\r\n1.For entity E[sub]1[/sub] create relation R[sub]1[/sub] with attributes A, B and C and A as primary key in R[sub]1[/sub].\r\n\r\n2.For entity E[sub]2[/sub] create relation R[sub]2[/sub] with attributes D, E and D is the primary key in R[sub]2[/sub].\r\n\r\n3.Create a new relation R[sub]3[/sub] that contains multi valued attribute F and  primary key of E[sub]2[/sub] i.e  D. The primary key of R[sub]3[/sub] is DF.\r\n\r\n4.Create a new relation R[sub]4[/sub] that represents the relationship R with   A, D and G as attributes. The combination of A, D i.e AD is the primary key of R[sub]4[/sub]. Final tables are R[sub]1[/sub]([u]A[/u] B C), R[sub]2[/sub]([u]D[/u], E), R[sub]3[/sub]([u]D[/u], F), R[sub]4[/sub]([u]A,D[/u], G).\r\n \r\nAccording to the given information, the FDs that we can put under R[sub]1[/sub]([u]A[/u] B C) is A→BC and FD under R[sub]2[/sub]([u]D[/u], E) is D→E and FDs under R[sub]3[/sub]([u]D[/u], F) is D→F . Since all the determinants of all FDs are keys, we can say that all relations are in 3NF.\r\n   \t\t Minimum number of tables in database is 4.\r\n\t\t∴ Answer is (d)	1	4	
+Q	1	Consider the following ERD illustrating the relationship of student and course\r\n[object]DBMS Subject Test 1/Q1.PNG[/object:604:221:] \r\nSelect from among the following, candidates for relations, if the above ERD is mapped into a relational model\r\n1.Course([u]CourseId[/u], CourseName, Duration, Instructor SSN)\r\n2.Enroll([u]Date_of_enrollment[/u], StudentId, CourseId)\r\n3.Student([u]StudentId[/u], CourseId, Age, Sex)\r\n4.Student([u]StudentId[/u], Age, Sex)\r\n5.Enroll([u]StudentId, CourseId[/u], Date_of_enrollment)		S	2		0	0	0	0
+A	1	1, 2 and 4		0	1	
+A	1	1, 4 and 5	[u]Conversion of M:N relationship into relational model[/u]:\r\nWe know that for M:N relationship to convert into relation model, we have to create separate relation and include both primary keys of M side entity and N side entity in relation R and make this combination as primary key for new relation R. If there any attributes for relationship type, we need to add those attributes in relation R.\r\nFor the given ER diagram, we have to create 3 relations\r\n\t→ Student([u]StudentId[/u], Age, Sex)\r\n\t→ Course([u]CourseId[/u], Duration, InstructorName, CourseName)\r\n\t→ Enroll([u]StudentId, CourseId[/u], Date_of_Enrollment)\r\n\t\t∴ From given relations 1, 4 and 5 are candidate relations.	1	2	
+A	1	1, 3 and 5		0	3	
+A	1	1, 2 and 4		0	4	
+Q	1	Consider the following tables\r\nVendor([u]Vendor_id[/u], Vendor_name, Vendor_Address, Vendor_Phonenumber)\r\nOrder([u]Order_id[/u], Order_date, Vendor_id, Order_Status, delivered_date)\r\nItem([u]Item_id[/u], Item_desc, Item_qty)\r\nOrder_detail([u]Order_id, Item_id[/u], Qty_ordered, Qty_delivered)\r\nWith primary keys as underlined.\r\nWhat is the result of the following SQL query?\r\n“Select DISTINCT(a.Order_id) from Order_detail a\r\n\twhere 2 < = (select count(Item_id) from Order_detail\r\n\twhere a.Order_id = Order_id);		S	2		0	0	0	0
+A	1	Every Order_id that has more than two items listed in that order		0	1	
+A	1	Every Order_id that has less than two items listed in that order		0	2	
+A	1	Every Order_id that has two or more than two items listed in that order	Given query is a correlated subquery.\r\n\tFor each order_id in order_detail table we are counting the item_id’s under this order. If this count is greater than or equal to 2 then we are displaying that order_id’s. If they are any duplicates in order_id’s, DISTINCT keyword will eliminate this.	1	3	
+A	1	None of the above		0	4	
+Q	1	Consider the schedule S defined by\r\n[object]DBMS Subject Test 1/Q15.PNG[/object:393:71:]\r\nWhich of the following is view equivalent serial schedule to given schedule?		S	2		0	0	0	0
+A	1	(T[sub]2[/sub], T[sub]3[/sub], T[sub]1[/sub])		0	1	
+A	1	(T[sub]3[/sub], T[sub]2[/sub], T[sub]1[/sub])		0	2	
+A	1	(T[sub]2[/sub], T[sub]1[/sub], T[sub]3[/sub])		0	3	
+A	1	(T[sub]1[/sub], T[sub]2[/sub], T[sub]3[/sub])	Given schedule is\r\n[object]DBMS Subject Test 1/Q15_exp1.PNG[/object:295:184:]\r\n\r\nPolygraph for the given schedule is\r\n[object]DBMS Subject Test 1/Q15_exp2.PNG[/object:191:173:]\r\n                          \r\nTopological order of the above graph is T[sub]2[/sub], T[sub]1[/sub], T[sub]3[/sub].\r\nTherefore, we can say that the given schedule is view equivalent to T[sub]2[/sub], T[sub]1[/sub], T[sub]3[/sub].	1	4	
+Q	1	Consider two relational schemas Employee and Department as follows:\r\n[object]DBMS Subject Test 1/Q18.PNG[/object:515:87:] \r\nWhich of the following will be the invalid query transformation (i.e., replacing the L.H.S expression by the R.H.S expression)?		S	2		0	0	0	0
+A	1	[object]DBMS Subject Test 1/Q18_option1.PNG[/object:457:30:]		0	1	
+A	1	[object]DBMS Subject Test 1/Q18_option2.PNG[/object:390:24:]		0	2	
+A	1	[object]DBMS Subject Test 1/Q18_option3.PNG[/object:497:29:]	[u]Checking for option (a)[/u]:\r\n\r\nWe know that selection condition is commutative. Therefore we can say that RHS is valid query transformation of LHS.\r\n\r\n[u]Checking for option (b)[/u]:\r\n\r\n In LHS, first we are projecting the salary of all employees and then we are selecting the salaries of employees whose salary is greater than 10000. In RHS, we are first selecting all employees whose salary is greater than 10000 and then projecting the salary of these employees. These two are equivalent queries, therefore we can say that RHS is the valid query transformation of LHS.\r\n\r\n[u]Checking for option (c)[/u]:\r\n\r\nIn LHS, we are applying condition on both dept column and salary column and then projecting the salaries of resultant employees, but in RHS first we are projecting the salaries of employees and then applying condition on both dept column and salary column of employee. This is invalid since there is no dept column in the resultant table to apply the selection condition on dept column. Therefore RHS is invalid.	1	3	
+A	1	None		0	4	
+Q	1	Consider two relational schemas Project([u]Pnumbe[/u]r, Pname, Dno)  and works_on(e[u]id, pno[/u], hours) with primary keys as underlined. \r\n\r\nWrite an SQL query to retrieve all project numbers in descending order in which more than 3 employees are working?		S	2		0	0	0	0
+A	1	SELECT  W.Pno, count(*) as No_employees_working FROM\r\n                        Project P, Works_on W ON W.pno= P. Pnumber \r\n                        GROUP BY eid  HAVING Count(*) >3 ODRER BY Pno DESC;		0	1	
+A	1	SELECT  W.Pno, count(*) as No_employees_working FROM\r\n                  Project P, Works_on W ON W.pno= P. Pnumber \r\n                        GROUP BY Pno HAVING Count(*) >3 ODRER BY Pno DESC;	Here we have to select all the project numbers in descending order such that more than 3 employees are working in that project.\r\nFor this we have performed join on PROJCET table and WORKS_ON table with join condition as P.Pnumber = W.pno and we grouped the result by Pno and apply condition on the groups obtained as count(*) >3 to retrieve the projects in which  more than 3 employees are working.	1	2	
+A	1	SELECT  W.Pno, count(*) as No_employees_working FROM\r\n                  Project P, Works_on W ON W.pno= P. Pnumber \r\n                        GROUP BY Pno, eid  HAVING Count(*) >3 ODRER BY Pno DESC ;		0	3	
+A	1	None of the above		0	4	
+Q	1	Correlated subquery is a \r\nI. Query evaluated once for the entire parent statement\r\nII. Query evaluated once, for every row processed by the parent statement \r\nWhich of the above statement(s) is/are correct?		S	1		0	0	0	0
+A	1	Only I		0	1	
+A	1	Only II	In a correlated subquery, subquery will be evaluated once for each tuple / row in the parent query.\r\n\tSo, answer is option (b)	1	2	
+A	1	Both I & II		0	3	
+A	1	None of the above		0	4	
+Q	1	For a given schedule S, find out the conflict equivalent serial schedule derived through topological ordering of precedence \r\nS: r[sub]1[/sub](x); r[sub]2[/sub](z); r[sub]1[/sub](z); r[sub]3[/sub](x); r[sub]3[/sub](y); W[sub]1[/sub](y); W[sub]3[/sub](y); r[sub]2[/sub](y); W[sub]2[/sub](z); W[sub]2[/sub](y);		S	2		0	0	0	0
+A	1	T[sub]1[/sub], T[sub]2[/sub], T[sub]3[/sub]		0	1	
+A	1	T[sub]3[/sub], T[sub]2[/sub], T[sub]1[/sub]		0	2	
+A	1	T[sub]1[/sub], T[sub]3[/sub], T[sub]2[/sub]		0	3	
+A	1	Not conflict serializable	Given schedule\r\n\t[object]DBMS Subject Test 1/Q14_exp1.PNG[/object:328:263:]\r\nThe precedence graph for the above schedule is\r\n[object]DBMS Subject Test 1/Q14_exp2.PNG[/object:165:170:]                            \r\n  In the above precedence graph, cycle is present. So, the given schedule is not conflict serializable. So, the answer is (d).	1	4	
+Q	1	Given a B tree of order 4 is as follows:\r\n[object]DBMS Subject Test 1/Q30.PNG[/object:189:103:] \r\n\tIf we delete 13 from the above B  tree, what is the resultant tree?		S	1		0	0	0	0
+A	1	[object]DBMS Subject Test 1/Q30_option1.PNG[/object:160:95:]		0	1	
+A	1	[object]DBMS Subject Test 1/Q30_option2.PNG[/object:160:95:]	Given order of B tree is 4\r\n\t\t∴ Minimum number of keys in leaf / internal node is   = 1\r\n\t\tMinimum number of keys in root node = 1\r\n\t\tIf we delete 13 from the above tree, then tree will become\r\n\t\t [object]DBMS Subject Test 1/Q30_exp1.PNG[/object:378:165:]\r\n\t\tFinal tree is:\r\n[object]DBMS Subject Test 1/Q30_exp2.PNG[/object:174:101:]	1	2	
+A	1	[object]DBMS Subject Test 1/Q30_option3.PNG[/object:158:93:]		0	3	
+A	1	None of these		0	4	
+Q	1	Given instance of relation R as\r\n[object]DBMS Subject Test 1/Q22.PNG[/object:171:189:]\r\n\r\nWhich of the following FD’s may hold on the above instance?		S	1		0	0	0	0
+A	1	A → B		0	1	
+A	1	B → C		0	2	
+A	1	AB → C		0	3	
+A	1	Both (b) & (c)	Given instance of relation R as\r\n[object]DBMS Subject Test 1/Q22_exp.PNG[/object:174:199:]\r\n\r\n[u]Checking for option(a)[/u]:\r\n\t\tA → B\r\n\tDoes not hold because for a given A (say 10) B has 2 values (b[sub]1[/sub] and b[sub]2[/sub])\r\n\r\n[u]Checking for option(b)[/u]:\r\n\t\tB → C\r\n\tHolds since for every distinct value of B, there is a distinct value of C in table.\r\n\r\n[u]Checking for option(c)[/u]:\r\n\t\tAB → C\r\n\tSince B → C hold on the above relational instance R, it is trivial that AB → C also holds on relational instance R (Augmentation rule).\r\n\r\n[u]Checking for option(d)[/u]:\r\n\t\tBoth B & C → Correct\r\n\tSo, answer is (d)	1	4	
+Q	1	Given the order of B tree as 4, the maximum and minimum number of keys present in root, internal & leaf node respectively?		S	1		0	0	0	0
+A	1	(3, 1) (3, 1) (4, 1)		0	1	
+A	1	(3, 1) (3, 1) (3, 1)	Given order of B tree = 4 (p)\r\n∴[object]DBMS Subject Test 1/Q13_exp1.PNG[/object:425:161:]\r\nGiven B tree of order p = 3\r\n[object]DBMS Subject Test 1/Q13_exp2.PNG[/object:420:81:]	1	2	
+A	1	(4, 2) ( 4, 2) (4, 2)		0	3	
+A	1	(3, 2) (3, 2) (3, 2)		0	4	
+Q	1	Given these contents of the Customers table:\r\n[object]DBMS Subject Test 1/Q29.PNG[/object:278:240:]\r\nWhat is the difference between the number of rows retrieved by Query1 and Query2?\r\nQuery1: SELECT Name FROM Customers WHERE ReferredBy <> 2;\r\nQuery2: SELECT Name FROM Customers WHERE ReferredBy IS NULL OR ReferredBy <> 2;		S	2		0	0	0	0
+A	1	0		0	1	
+A	1	3	[u]Output of Query1[/u]:\r\nIt compares all ReferredBy values with 2, all rows except tuples having ReferredBy values as  2 and NULL return true. The tuples having  ReferredBy values as 2 return False and so not displayed in Output. The tuples having ReferredBy values as NULL return UNKNOWN as truth value and so does not display in output. \r\nTherofore Query1 retrieves only “Pat” name.\r\n\r\n[u]Output of Query2[/u]:\r\nIt retrieves all tuples whose ReferredBy values is either NULL or not equal to 2 . Therefore Query2 retrieves “John”, “Jane”, “Eric”, “Pat”.\r\nThe difference in the number of rows produced by Query1 and Query2 is 3.	1	2	
+A	1	1		0	3	
+A	1	4		0	4	
+Q	1	In a database file structure, the search key field is 12 bytes long, the block size is 512 bytes, a record pointer is 7 bytes long and block pointer is 6 bytes. The largest possible order of a leaf node in a B[sup]+[/sup] tree implementing this file structure is?		S	2		0	0	0	0
+A	1	26	Let order of a leaf node be p[sub]leaf[/sub]\r\n\t\tNode should be accommodated in a block\r\nGiven block pointer size = 6 bytes\r\n      Record pointer size = 7 bytes\r\n      Search key field size = 12 bytes\r\n\r\n\t\t∴ (p[sub]leaf[/sub])(7 + 12)+ 6 ≤ 512\r\n\t\t\t  19 p[sub]leaf[/sub] ≤ 506\r\n\t\t\t     p[sub]leaf[/sub] ≤ 506/19\r\n\t\t\t     p[sub]leaf[/sub] ≤ 26.6315\r\n\t\t\t\t        \r\n \t\t∴ Order of leaf node in B[sup]+[/sup] tree is 26.	1	1	
+A	1	27		0	2	
+A	1	25		0	3	
+A	1	24		0	4	
+Q	1	In a schedule S, two transactions T1 and T2 are executing concurrently the execution order of those transactions is given. Are there any problems with concurrency?\r\n[object]DBMS Subject Test 1/Q12.PNG[/object:267:410:]		S	1		0	0	0	0
+A	1	Dirty read problem		0	1	
+A	1	Incorrect summary problem		0	2	
+A	1	Lost update problem		0	3	
+A	1	Both (a) and (b)	Given schedule has both incorrect summary problem and dirty read problem. If one transaction is calculating the an aggregate summary function on a number of records while other transactions are updating some of these records, the aggregate function may calculate some values before they are updated and some after they are updated. Here transaction T[sub]2[/sub] is calculating the sum by reading the value of X after T[sub]1[/sub] updates X and but reading the value of Y before T[sub]1[/sub] updates it. This leads to incorrect summary problem.\r\nIn the above schedule T[sub]2[/sub] also reads the value of X written by T[sub]1[/sub] before T[sub]1[/sub] commits. This leads to dirty read problem.	1	4	
+Q	1	Let Employee([u]Eid[/u], Fname, DeptNo) and Department([u]Dno[/u], Dname, Mgr_SSN) be two relational schemas, where primary keys are shown underlined and let DeptNo is the foreign key in employee referring to Department (Assume every employee will be working in a department). Suppose there is no violation of the above referential integrity constraint in the corresponding relation instances r[sub]1[/sub] and r[sub]2[/sub]. Which one of the following relational algebra expressions would necessarily produce an empty relation:		S	1		0	0	0	0
+A	1	[object]DBMS Subject Test 1/Q21_Option1.PNG[/object:265:25:]		0	1	
+A	1	[object]DBMS Subject Test 1/Q21_Option2.PNG[/object:444:26:]		0	2	
+A	1	[object]DBMS Subject Test 1/Q21_Option3.PNG[/object:294:23:]		0	3	
+A	1	[object]DBMS Subject Test 1/Q21_Option4.PNG[/object:269:26:]	Here DeptNo in Employee is foreign key referring to the primarykey Dno of Department and also mentioned there is no violation of referential integrity constraint. It means every DeptNo in employee should be present in DeptNo of Department. Therefore option(d) produces an empty relation.	1	4	
+Q	1	Let R(A, B, C) and S(C) be two relational schemas and the tales are as follows:\r\n[object]DBMS Subject Test 1/Q20_1.PNG[/object:266:175:]\r\nQuery 1: π[sub]A,B[/sub](R)-π[sub]A,B[/sub] (π[sub]A,B[/sub](R)×S-π[sub]A,B,C[/sub](R) )\r\n\r\nQuery 2: Select R.a, R.b from R, S where R.C = S.C\r\nThe difference in the number of tuples in the output of query 1 and query 2 is		S	2		0	0	0	0
+A	1	0		0	1	
+A	1	1		0	2	
+A	1	2		0	3	
+A	1	3	Query 1 is same as that of (R|S):\r\n\t\tSo, the output is\r\n[object]DBMS Subject Test 1/Q20_exp1.PNG[/object:156:104:]\r\nNumber of tuples = 2\r\n\r\n\t\tOutput of query 2 is\r\n[object]DBMS Subject Test 1/Q20_exp2.PNG[/object:95:168:]\r\nNumber of tuples = 5\r\n\t\tSo, difference in number of tuples in output of both queries is (5 – 2) = 3	1	4	
+Q	1	Let R(a, b, c) and S(d, e, f) be two relations in which d is the foreign key of S that refers to the primary key of R. consider the following four operations R and S\r\n1.Insert into R\r\n2.Insert into S\r\n3.Delete from R\r\n4.Delete from S\r\nWhich of the following is true about the referential integrity constraint above?		S	1		0	0	0	0
+A	1	None of 1, 2, 3 or 4 can cause its violation		0	1	
+A	1	All of 1, 2, 3, and 4 can cause its violation		0	2	
+A	1	Both 1 and 4 can cause its violation		0	3	
+A	1	Both 2 and 3 can cause its violation	For a referential integrity to hold in a relational database, any field in a table that is declared a foreign key can contain either a NULL value or only values from a parent table’s primary key is the parent table.\r\nHere (2) & (3) can cause violation since if we are trying to insert any value in foreign key (d in S) that is not present in primary key, then referential integrity constraint violates.\r\nIn the same way if we delete any row from R and that primary key value is being referenced by some foreign key in other relation then that also may course referential integrity constraint violation.	1	4	
+Q	1	Let transactions T[sub]1[/sub], T[sub]2[/sub] and T[sub]3[/sub] be defined to perform the following operations:\r\nT[sub]1[/sub]: Add 5 to A\r\nT[sub]2[/sub]: Double A\r\nT[sub]3[/sub]: Display A on the screen and then set it to 1 i.e., A = 1.\r\n\t(Where A is same item in the database)\r\nSuppose transactions T[sub]1[/sub], T[sub]2[/sub] and T[sub]3[/sub] are allowed to execute concurrently. If A has initial value zero, report the possible values of final value of A and the displayed value of A\r\n\r\nI – 1, 10\r\n\r\nII – 2, 5\r\n\r\nIII – 7, 0\r\n\r\nIV – 12, 0		S	2		0	0	0	0
+A	1	I and III only		0	1	
+A	1	I, II, III only		0	2	
+A	1	II and IV only		0	3	
+A	1	I, II, III and IV	I   → 1, 10 will come if transactions are executed in order T[sub]1[/sub], T[sub]2[/sub], T[sub]3[/sub]\r\n\tII  → 2, 5 will come if transactions are executed in order T[sub]1[/sub], T[sub]3[/sub], T[sub]2[/sub]\r\n\tIII → 7, 0 will come if transactions are executed in order T[sub]3[/sub], T[sub]2[/sub], T[sub]1[/sub]\r\n\tIV → 12, 0 will come if transactions are executed in order T[sub]3[/sub], T[sub]1[/sub], T[sub]2[/sub]\r\n\tSo answer is (d)	1	4	
+Q	1	The following diagram describes a part of an ER diagram\r\n[object]DBMS Subject Test 1/Q2.PNG[/object:401:238:] \r\nSelect the false statements among the following on the above diagram:		S	1		0	0	0	0
+A	1	E[sub]2[/sub] is a weak entity		0	1	
+A	1	E[sub]1[/sub] is a strong entity		0	2	
+A	1	A[sub]6[/sub] represents an attribute which is having composite nature	In ER, multi valued attributes are represented by double oval shape, therefore here A[sub]6[/sub] is multi valued attribute but not composite attribute. Composite attributes are represented by \r\n[object]DBMS Subject Test 1/Q2_exp.PNG[/object:111:109:]\r\n\r\n So, option (c) is wrong.\r\nHere E[sub]2[/sub] is weak entity, since E[sub]2[/sub] has only partial key A[sub]5[/sub] but has no primary key.	1	3	
+A	1	A[sub]6[/sub] represents multi valued attribute		0	4	
+Q	1	The following schedule is allowed in which protocol?\r\n[object]DBMS Subject Test 1/Q17.PNG[/object:342:205:]		S	1		0	0	0	0
+A	1	Time-stamp ordering protocol only		0	1	
+A	1	Two phase locking protocol only		0	2	
+A	1	Both time-stamp ordering and two phase locking protocol		0	3	
+A	1	None of the above	Given schedule is\r\n[object]DBMS Subject Test 1/Q17_exp.PNG[/object:345:196:]\r\n\r\nWe cannot apply 2PL to the above schedule because if we apply exclusive lock on   A in transaction T[sub]0[/sub], we cannot apply exclusive lock on A in transaction T[sub]1[/sub]   (Because once T[sub]0[/sub] releases lock on A it cannot obtain lock on B since 2PL does not allow it and hence T[sub]0[/sub] does not release lock on A) . So, this schedule won’t be allowed by 2PL.\r\nWe cannot apply timestamp ordering protocol also because while performing w[sub]0[/sub](B) operation second time, it sees that some other younger transaction (T[sub]2[/sub]) already wrote data item “B”. so, it rejects that operation and performs roll back of that transaction T[sub]0[/sub].	1	4	
+Q	1	Which of the following operators are monotone? (Monotone operator is nothing but, whenever we add some tuples to the input arguments, the result contains all the tuples that it contained before adding the tuple and perhaps more tuples)		S	1		0	0	0	0
+A	1	×,⋂,⋈	All operators except  the difference operator are monotone. Since, in the expression "A-B", if you add more tuples to B, then the difference might end up “losing” some of the tuples it had before.\r\nSuppose if  2 relations A and B are as follows:\r\n[object]DBMS Subject Test 1/Q32_exp.PNG[/object:160:317:]\r\n\r\nIf I add one more tuple to B, say (2, Sindhu) then A – B =Φ\r\nThis means, if we add more tuples to the one of the input arguments then the output may contain less number of tuples than in the previous output or original output. So ‘–‘ is not monotone operator. Remaining all operators are monotone.\r\nSo, option (a) is correct.	1	1	
+A	1	×,⋂,-		0	2	
+A	1	⋂,-,⋈		0	3	
+A	1	None of the above		0	4	
+Q	1	Which of the following relational calculus expression is safe?		S	1		0	0	0	0
+A	1	{p | Ǝ t ∊ R[sub]1[/sub](p[A] = t[A]  ʌ Ǝ q ∊ R[sub]2[/sub] (p[A] = q[A])}		0	1	
+A	1	{p | ∀ t ∊ R[sub]1[/sub](t[A] = “x” ⇒ Ǝ s ∊ R[sub]2[/sub](p[A] =s[A] ʌ s[A] = t[A]))}		0	2	
+A	1	{p | ⌐(p ∊ R[sub]1[/sub])}	A safe expression yields a finite number of tuples as its result. Otherwise, it is called unsafe. Here (c) is unsafe since it produces all tuples in the universe that does not belong to R1, which will result in infinite tuples. Therefore option (c) is unsafe. In remaining all cases, it yields finite number of tuples.	1	3	
+A	1	{p | Ǝ t ∊ R[sub]1[/sub](p[A] = t[A]  ʌ Ǝ s ∊ R[sub]2[/sub] (p[A] = s[A])}		0	4	
+Q	1	Which of the following statement(s) is/are true?\r\nI. Primary index is always dense index\r\nII. Clustered index is always non-dense index		S	1		0	0	0	0
+A	1	Only I		0	1	
+A	1	Only II	We know that primary index is a non dense index, means for every data record we need not maintain pointer, we will maintain pointer for one block.\r\n\r\nClustered index is a non-dense index, in this index also we maintain pointer for each distinct data value.	1	2	
+A	1	Both I & II		0	3	
+A	1	None of the above		0	4	

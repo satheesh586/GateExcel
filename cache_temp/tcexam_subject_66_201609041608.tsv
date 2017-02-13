@@ -1,0 +1,17 @@
+M=MODULE	module_enabled	module_name
+S=SUBJECT	subject_enabled	subject_name	subject_description
+Q=QUESTION	question_enabled	question_description	question_explanation	question_type	question_difficulty	question_position	question_timer	question_fullscreen	question_inline_answers	question_auto_next
+A=ANSWER	answer_enabled	answer_description	answer_explanation	answer_isright	answer_position	answer_keyboard_key
+
+M	1	Databases
+S	1	DBMS Subject 1 Linked Q(1)	Databases - 1
+Q	1	[b]Linked Questions Q5 & Q6:[/b]\r\nFor example consider the following data values in an EMPLOYEE table (Assume emp_id, age & dept_id as number datatype and Fname, Lname as string datatype)\r\n[object]DBMS Subject Test 1/Q5.PNG[/object:530:164:]\r\n\t\t\r\nThe SQL query “SELECT COUNT(*) AS ROW_COUNT, COUNT(Fname) as first_name_count, COUNT(Lname) as last_name_count, count(dept_id) as dept_count from employee;” will return the results as		S	2	1	0	0	0	0
+A	1	7, 7, 7, 7		0	1	
+A	1	7, 7, 7, 5		0	2	
+A	1	7, 6, 7, 7		0	3	
+A	1	7, 6, 7, 5	We know that every aggregate function except count(*) ignore NULL values\r\n\t∴ Count(*)         = 7\r\n                           Count(Fname) = 6\r\n\t\t   Count(Lname) = 7\r\n\t\t   Count(dept_id) = 5	1	4	
+Q	1	[b]Linked Questions Q5 & Q6:[/b]\r\nFor example consider the following data values in an EMPLOYEE table (Assume emp_id, age & dept_id as number datatype and Fname, Lname as string datatype)\r\n[object]DBMS Subject Test 1/Q5.PNG[/object:530:164:]\r\n\t\t\r\nThe SQL query “Select count(Fname), count(DISTINCT Fname), COUNT(DISTINCT(Fname ¦¦ Lname)) From EMPLOYEE;” will return results (Here ¦¦ refers to concatenation of two strings)		S	2	2	0	0	0	0
+A	1	6, 5, 7	Count(Fname) = 6\r\n\tCount(DISTINCT Fname) = 5\r\n\tCount(DISTINCT Fname ¦¦ Lname)) = 7\r\n\t          (Since SQL treats NULL as an empty string concatenation of any string with NULL string is same)\r\n\tSo, answer is (a)	1	1	
+A	1	5, 6, 7		0	2	
+A	1	7, 6, 5		0	3	
+A	1	4, 5, 7		0	4	

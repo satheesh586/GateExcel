@@ -1,0 +1,37 @@
+M=MODULE	module_enabled	module_name
+S=SUBJECT	subject_enabled	subject_name	subject_description
+Q=QUESTION	question_enabled	question_description	question_explanation	question_type	question_difficulty	question_position	question_timer	question_fullscreen	question_inline_answers	question_auto_next
+A=ANSWER	answer_enabled	answer_description	answer_explanation	answer_isright	answer_position	answer_keyboard_key
+
+M	1	Compiler Design
+S	1	CD Subject Test - 3 Common Q 1	Compiler Design – 3 (Subject Test)
+Q	1	Consider the grammar below:\r\nE → UV | EBE | V | [E]\r\nV → a | b\r\nU → < | >\r\nB → ? | ! | @\r\nThe CFG is eliminated of ambiguity, left recursion and left factors. Considering ?, !, @ as right associative binary operators and their precedence being assumed as ? having lowest precedence, followed by ! and @ having the highest. Unary operators < and > have even higher precedence. The resulting grammar is as follows:\r\nE   → T \r\n  → ? E | ∊\r\nT   → F  \r\n  → ! T | ∊\r\nF   → W  \r\n  → @F | ∊\r\nW → UV | V | [E]\r\nV  → a | b\r\nU → < | >\r\n\tThe FOLLOW sets for each non-terminal in the grammar is:		S	2		0	0	0	0
+A	1	FOLLOW(E)   = {$, ]}\r\nFOLLOW( ) = {$,]}\r\nFOLLOW(T)   = {?, $, ]}\r\nFOLLOW( ) = {?, $, ]}\r\nFOLLOW(F)   = {!, ?, $, ]}\r\nFOLLOW( ) = {!, ?, $, ]} \r\nFOLLOW(W) = {@, !, ?, $, ]}\r\nFOLLOW(V)  = {@, !, ?, $, ]}\r\nFOLLOW(U)  = {a, b}	[object]CD Subject Test - 3/Q4_exp.PNG[/object:463:358:]	1		
+A	1	FOLLOW(E)   = {<, >, a, b}\r\nFOLLOW( ) = {?, ∊}\r\nFOLLOW(T)   = {<, >, a, b}\r\nFOLLOW( ) = {!, ∊}\r\nFOLLOW(F)   = {<, >, a, b, [}\r\nFOLLOW( ) = {a, b}\r\nFOLLOW(W) = {@, ∊}\r\nFOLLOW(V) = {<, >}\r\nFOLLOW(U) = {a, b}		0		
+A	1	None of these		0		
+A	1	FOLLOW(E)   = {$}\r\nFOLLOW( ) = {$,]}\r\nFOLLOW(T)   = {<, >, a, b}\r\nFOLLOW( ) = {<, >, ∊}\r\nFOLLOW(F)   = {!, ?, $, ]}\r\nFOLLOW( ) = {!, ?, $, ]} \r\nFOLLOW(W) = {@, !, ?, $, ]}\r\nFOLLOW(V)  = {a, b}\r\nFOLLOW(U)  = {<, >}		0		
+Q	1	The LL(1) parsing table for the modified grammar is given below:\r\nE   → T \r\n  → ? E | ∊\r\nT   → F  \r\n  → ! T | ∊\r\nF   → W  \r\n  → @F | ∊\r\nW → UV | V | [E]\r\nV  → a | b\r\nU → < | >\r\n\tLL(1) parsing table:\r\n[object]CD Subject Test - 3/Edit_1.png[/object:754:365:]\r\nWhat will be the value of entries E1, E2, E3, E4, E5 respectively?		S	2		0	0	0	0
+A	1	E → TE',T'→!T, T'→∊,F→WF',U→∊	[object]CD Subject Test - 3/Edit_2.png[/object:752:349:]	1		
+A	1	[object]CD Subject Test - 3/Q5_opt_B.PNG[/object:311:39:]		0		
+A	1	[object]CD Subject Test - 3/Q5_opt_C.PNG[/object:309:24:]		0		
+A	1	[object]CD Subject Test - 3/Q5_opt_D.PNG[/object:295:32:]		0		
+Q	1	Consider the following grammar:\r\nE → UV | EBE | V | [E]\r\nV → a | b\r\nU → < | >\r\nB → ? | ! | @\r\n\tWhich of the following statement is incorrect?		S	2	1	0	0	0	0
+A	1	The grammar is unambiguous	[u]The grammar is unambiguous ⇒ incorrect.[/u]\r\nThe grammar is ambiguous. Expression “a @ a ! a” has the following two parse trees under the grammar.\r\n[object]CD Subject Test - 3/Q3_exp.PNG[/object:365:249:]	1		
+A	1	The grammar can derive more than one parse trees for a given string		0		
+A	1	The grammar contains left recursion		0		
+A	1	The grammar is a CFG		0		
+Q	0	‘Divide by zero’ is a		S	1		0	0	0	0
+A	1	Semantic error		1		
+A	1	Lexical error		0		
+A	1	Syntax error		0		
+A	1	None of these		0		
+Q	0	Consider the following relation table:\r\n[object]CD Subject Test - 3/Q7.PNG[/object:379:186:]		S	1		0	0	0	0
+A	1	[object]CD Subject Test - 3/Q7_opt_a.PNG[/object:457:74:]	:\r\nThere are four terminals id, *, + and $; hence, create 8 symbols fid, gid, f+, g+, f*, g*, f$ and g$. As there are no ≐ relations, each symbol is treated as a separate group. Now construct diagraph as shown in figure with each symbol as a node, that is, 8 nodes as follows.\r\nTo get the precedence function f(id), start from node fid, traverse all possible paths from fid. The path must start with fid and can end anywhere (need not be f$ or g$).\r\nFor example, from node fid there are four possible paths as follows:\r\n\tf¬id – g$ where path length is 2\r\n\tfid – g* – f+ – g$ where path length is 3\r\n\tfid – g* – f+ – g+ – f$ where path length is 4\r\n\tfid – g+ – f$ where path length is 3\r\n[object]CD Subject Test - 3/Q7_exp.PNG[/object:559:467:]	1		
+A	1	[object]CD Subject Test - 3/Q7_opt_b.PNG[/object:465:74:]		0		
+A	1	[object]CD Subject Test - 3/Q7_opt_c.PNG[/object:464:73:]		0		
+A	1	None of these		0		
+Q	0	Consider the input string ‘a + b * c’ is being parsed by an operator precedence parser. At a certain instance the stack pointer and the pointer in the i/p buffer is shown as below\r\n\r\n[object]CD Subject Test - 3/Q6.PNG[/object:199:91:]\r\nWhat is the action taken by the operator precedence parser at this instance?		S	1		0	0	0	0
+A	1	Shift * because + ∙>  *	Explanation:\r\n1.\tInitially, stack contains only $ and input buffer contains w$ where w is input string\r\n2.\tRepeat forever\r\na.\tLet “a” be the top element on stack and “b” is the current element pointed by the input pointer, that is, the look ahead symbol\r\nb.\tIf a < b or a = b, push b onto the stack and increment input pointer.(shift action)\r\nc.\tIf a > b then (reduce action) repeat Pop the stack until the top of the stack is < to the terminal most recently popped\r\nd.\tIf a = b = $, announces successful completion\r\n[object]CD Subject Test - 3/Q6_exp.PNG[/object:557:332:]	1		
+A	1	Pop * because *  <∙  $		0		
+A	1	Shift * because *  ∙>  +		0		
+A	1	Cannot be determined\r\n\r\n\r\nNote: Given: $  <∙  a,   a  ∙>  +,    $  <∙  +,    +  <∙  b,    b  <∙  *,    +  ∙>  *,      *  <∙  c,          c  <∙  $,    *  <∙  $,     +  <∙  $.		0		

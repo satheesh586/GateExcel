@@ -1,0 +1,17 @@
+M=MODULE	module_enabled	module_name
+S=SUBJECT	subject_enabled	subject_name	subject_description
+Q=QUESTION	question_enabled	question_description	question_explanation	question_type	question_difficulty	question_position	question_timer	question_fullscreen	question_inline_answers	question_auto_next
+A=ANSWER	answer_enabled	answer_description	answer_explanation	answer_isright	answer_position	answer_keyboard_key
+
+M	1	Databases
+S	1	DBMS Subject 1 Linked Q(3)	Databases - 1
+Q	1	[b]Linked Questions Q25 & Q26[/b]:\r\nGiven a relation R with four attributes ABCD, with FD set {B → C, D → A}\r\n\r\nWhat is the highest normal form that R satisfies?		S	2	1	0	0	0	0
+A	1	1 NF	Given relation R(ABCD) with FD set: {B → C, D → A}\r\n\r\n[u]Finding key for R[/u]:\r\n\tB, D is not there in right hand side of any FD. So find (BD)[sup]+[/sup]\r\n\t\t(BD)[sup]+[/sup] = BCDA\r\n\tTherefore BC is the only candidate key of relation R. Prime attributes = {B, C}\r\n\tGiven FD set\r\n\t\tB → C\t\t----- (1)\r\n\t\tD → A\t\t----- (2)\r\n\tFD (1) violates 2NF since it is a partial dependency\r\n\t[object]DBMS Subject Test 1/Q25_exp.PNG[/object:224:69:]\t \r\n\t∴ The highest normal form that R satisfies is 1NF	1	1	
+A	1	2 NF		0	2	
+A	1	3 NF		0	3	
+A	1	BCNF		0	4	
+Q	1	[b]Linked Questions Q25 & Q26[/b]:\r\nGiven a relation R with four attributes ABCD, with FD set {B → C, D → A}\r\n\r\nIf R is not in BCNF, if we decompose it into BCNF, then how many tables will be formed?		S	2	2	0	0	0	0
+A	1	4		0	1	
+A	1	3	FD (1) violates BCNF since LHS of FD (1) i.e., B is not super key\r\n\t\tSo, find (B)[sup]+[/sup], (B)[sup]+[/sup] = BC\r\n\t\t [object]DBMS Subject Test 1/Q26_exp.PNG[/object:296:150:]\r\n\tSo, the total number of tables = 3	1	2	
+A	1	2		0	3	
+A	1	1		0	4	

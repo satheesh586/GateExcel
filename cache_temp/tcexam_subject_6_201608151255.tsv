@@ -1,0 +1,17 @@
+M=MODULE	module_enabled	module_name
+S=SUBJECT	subject_enabled	subject_name	subject_description
+Q=QUESTION	question_enabled	question_description	question_explanation	question_type	question_difficulty	question_position	question_timer	question_fullscreen	question_inline_answers	question_auto_next
+A=ANSWER	answer_enabled	answer_description	answer_explanation	answer_isright	answer_position	answer_keyboard_key
+
+M	1	Theory of Computation
+S	1	TOC - 2 Linked Q	2 Linked questions in NFA, Conversions, Mealy and Moore machines
+Q	1	[size=large][b]Linked Answer Questions (Q14 and Q15):[/b]\r\n[/size]\r\nThe number of states in the minimal finite automata of the NFA obtained in the above question is		S	2		0	0	0	0
+A	1	6	The NFA obtained is \r\n[object]TOC Topic Test 2/Q15-exp1.png[/object:295:139:]\r\nThe transition table for the DFA constructed from the above NFA is\r\n[object]TOC Topic Test 2/Q15-exp2.png[/object:190:167:]\r\nFrom the above state transition table, we can see that states 1 and {1, 3} are equivalent. So, we merge them. This can also be done using grouping method. \r\nWe get the following minimal DFA having 6 states. \r\n[object]TOC Topic Test 2/Q15-exp3.png[/object:411:237:]	1		
+A	1	3		0		
+A	1	4		0		
+A	1	5		0		
+Q	1	[size=large][b]Linked Answer Questions (Q14 and Q15):[/b]\r\n[/size]\r\nConsider the following ϵ-NFA over Σ = {a, b}.\r\n[object]TOC Topic Test 2/Q14-question.png[/object:188:201:]\r\nConstruct the NFA corresponding to the given ϵ-NFA. Which one of the following sets of states has a transition to over symbol ‘a’ in the NFA constructed?		S	2	1	0	0	0	0
+A	1	{1,3}	Construct the transition table of NFA for the given ϵ-NFA.\r\nThe ϵ- closure of each state over each symbol is computed as below.\r\n[object]TOC Topic Test 2/Q14-exp1.png[/object:499:164:]\r\n∴The transition table of NFA is\r\n[object]TOC Topic Test 2/Q14-exp2.png[/object:174:110:]\r\nThe NFA corresponding to the above state transition table is\r\n[object]TOC Topic Test 2/Q14-exp3.png[/object:295:139:]\r\n∴There is a transition from states 1 to state 1 and state 3 over the symbol ‘a’.	1		
+A	1	{1}		0		
+A	1	{3}		0		
+A	1	{2,3}		0		

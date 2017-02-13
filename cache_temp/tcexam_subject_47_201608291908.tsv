@@ -1,0 +1,132 @@
+M=MODULE	module_enabled	module_name
+S=SUBJECT	subject_enabled	subject_name	subject_description
+Q=QUESTION	question_enabled	question_description	question_explanation	question_type	question_difficulty	question_position	question_timer	question_fullscreen	question_inline_answers	question_auto_next
+A=ANSWER	answer_enabled	answer_description	answer_explanation	answer_isright	answer_position	answer_keyboard_key
+
+M	1	Compiler Design
+S	1	CD Subject Test - 3	Compiler Design – 3 (Subject Test)
+Q	1	‘Divide by zero’ is a		S	1		0	0	0	0
+A	1	Runtime error	Runtime errors occur when a program with no syntax errors asks the computer to do something that the computer is unable to reliably do.  Common examples are:\r\n•\tTrying to divide by a variable that contains a value of zero\r\n•\tTrying to open a file that doesn't exist\r\nThere is no way for the compiler to know about these kinds of errors when the program is compiled.	1		
+A	1	Lexical error		0		
+A	1	Syntax error		0		
+A	1	None of these		0		
+Q	1	A program can contain errors at different level like,\r\n(1)\tLexical such as misspelling an identifier, keyword or operator.\r\n(2)\tSyntactic such as arithmetic expression with unbalanced parenthesis\r\n(3)\tAdding a array variable and function variable\r\nIn which one of the following phases of compiler, the program will be free from all the above errors?		S	1		0	0	0	0
+A	1	Semantic analysis phase	After all the lexical errors, syntax errors and semantic errors are removed. The code is given for intermediate code generator which do not have any errors.\r\nThe later stages also (which are CO & TCG) are targeted for converting the code into assembly level and no more error recovery occurs.	1		
+A	1	Syntax analysis phase		0		
+A	1	Lexical analysis phase		0		
+A	1	None of these		0		
+Q	1	A s-attributed SDD for the grammar defined below for generating a decimal number from a binary number with a “decimal” point is given as:\r\n\t[object]CD Subject Test - 3/Q31.PNG[/object:198:73:]		S	2		0	0	0	0
+A	1	[object]CD Subject Test - 3/Q31_opt_B.PNG[/object:501:119:]	(*) The logic used in converting the integral part of the binary number to decimal is explained using an example\r\n[object]CD Subject Test - 3/Q31_exp.PNG[/object:327:182:]\r\n\r\n         (*)The logic used behind in converting the decimal part is explained using an  example:\r\n Consider we need to convert   .101   from binary to decimal \r\nSo in general we use the following rule :\r\n(1/2^1)*1+ (1/2^2)*0+(1/2^3)*1\r\nwhich gives us 0.625\r\nWe are using the above weighted code method for evaluation but in a different way.\r\nHere we take the highest power as common and get the following:\r\n(1/2^3)(4*1+ 2*0 + 1*1) = 5/(2^3) = 5/8 = 0.625\r\n\r\nUsing the above two rules we associate the following semantic actions:\r\n[object]CD Subject Test - 3/Q31_opt_B.PNG[/object:501:119:]	1		
+A	1	[object]CD Subject Test - 3/Q31_opt_A.PNG[/object:401:180:]		0		
+A	1	[object]CD Subject Test - 3/Q31_opt_C.PNG[/object:348:118:]		0		
+A	1	None of these		0		
+Q	1	Choose the false statements		S	1		0	0	0	0
+A	1	There are LL(K) grammars that are not context free	LL(K) grammars has to be CFG. It can also be regular since all regular grammars can also be context free.\r\nAny ambiguous grammar cannot be LL(K) grammar since LL(K) grammars are top down parsers so having left recursion leads to infinite loop.	1		
+A	1	LL(K) grammar has to be a CFG		0		
+A	1	LL(K) grammar has to be a unambiguous		0		
+A	1	LL(K) grammars cannot have recursive non-terminals		0		
+Q	1	Consider the following CFG, where the words in bold are terminals:\r\nS →  S P | P\r\nP  → L a T | and another A T | A T | T T D\r\nD → duck\r\nA → funny | little | fuzzy\r\nL → here’s | there’s\r\nT → llama\r\nWhich one of the following option is false?		S	2		0	0	0	0
+A	1	The grammar is left recursive but not LL(1)	Left recursion is of the form A → Aα | β\r\n        The given grammar is left recursive because of the production :\r\n\tS  → SP \r\n\tSince the given grammar is left recursive so it can not be LL(1) since \r\nLL(1) is a top down parser and presence of left recursion leads to infinite loop.	1		
+A	1	The grammar is LL(1) but not left recursive		0		
+A	1	The grammar is not left recursive but it is LL(1)		0		
+A	1	The grammar is left recursive		0		
+Q	1	Consider the following grammar\r\nE → E+T| T\r\nT → T*F| F\r\nF → id\r\nThere is a procedure mknode(l, d, r) where l is the left pointer, d is the data elements and r is the right pointer. There is an attribute nptr to denote the newly created node.  \r\nWhat are the semantic rules that must be associated with the grammar so that it creates a syntax tree for the input “a+b*c”		S	2		0	0	0	0
+A	1	E → E + T  {E.nptr = mknode(E.nptr, “+”,T.nptr);}\r\n       E → T        {E.nptr = T.nptr;}\r\n       T → T*F    {T.nptr = mknode(T.nptr,”*”, F.nptr);}\r\n       T → F        {T.nptr = F.nptr}\r\n       F → id       {F.nptr = mknode(NULL, id.lvalue, NULL);}	The first step is to define grammar. The grammar is already given:\r\nE → E+T| T\r\nT → T*F| F\r\nF → id\r\n\t\tThe second step is to take the input string and draw a parse tree\r\n[object]CD Subject Test - 3/Q28_exp.PNG[/object:428:469:]\r\nThe first reduction is that identifier “a” is reduced to F. here we need to create a leaf node. For creating leaf nodes we use the mknode( ) function with the left pointer and the right pointer as NULL. The return type of function is the pointer to the newly created node. So to store this node pointer, assume that there is an attribute “nptr”. The semantic action is as follows:\r\n\t\t\tF → id\t\t{F.nptr = mknode(NULL, id.value, NULL);}\r\nThe next reduction is F to T. here simply extend the pointer further to T by adding semantic action as\r\n\t\t\tT → f\t\t{T.nptr = F.nptr;}\r\n\t\tSimilarly, even for the next reduction T to E, extend the pointer further.\r\n\tThe next reduction is “T*F” to T. here create a node using the mknode( ) function with “*” data element and T.nptr as the left pointer and F.nptr as the right pointer as shown below:\r\n\t\tT → T*F\t{T.nptr = mknode(T.nptr, “*”, F.nptr);}\r\n\tThe same thing can be carried out for E + T to E as\r\n\t\tE → E + T\t{E.nptr = mknode(E.nptr, “+”, T.nptr);}\t\r\nThe semantic rules to associated with the grammar to generate syntax trees is:\r\nE → E + T  {E.nptr = mknode(E.nptr, “+”,T.nptr);}\r\nE → T        {E.nptr = T.nptr;}\r\nT → T*F    {T.nptr = mknode(T.nptr,”*”, F.nptr);}\r\nT → F        {T.nptr = F.nptr}\r\nF → id        {F.nptr = mknode(NULL, id.lvalue, NULL);}\r\nSo the SDT generated will be given as shown below :\r\n[object]CD Subject Test - 3/Q28_exp_2.PNG[/object:233:176:]	1		
+A	1	E → E + T  {E.value = E.value + T.value;}\r\n      E → T        {E.nptr = T.nptr;}\r\n      T → T*F    {T.value = T.value*F.value;}\r\n      T → F        {T.nptr = F.nptr}\r\n      F → id        {F.nptr = mknode(NULL, id.lvalue, NULL);}		0		
+A	1	E → E + T  {E.nptr = mknode(E.nptr, “+”,T.nptr); E.value = E.value + T.value;}\r\n      E → T        {E.value = T.value;}\r\n      T → T*F    {T.nptr = mknode(T.nptr,”*”, F.nptr); T.value = T.value*F.value;}\r\n      T → F        {T.value = F.value}\r\n      F → id        {F.nptr = mknode(NULL, id.lvalue, NULL);}		0		
+A	1	None of these		0		
+Q	1	Consider the following program segment\r\nfun length(x) = if null(x) then 0 else length(tl(x)+ + 1;\r\n\tThe abstract syntax tree for the above code is:\r\n\t Note: In order to implement any function use ‘apply’ eg: null(x) is represented as		S	2		0	0	0	0
+A	1	[object]CD Subject Test - 3/Edit_4.PNG[/object:321:316:]	The abstract syntax tree in figure represents the definition of length in figure. The root of the tree, labeled fun, represents the function definition. The remaining non leaf nodes can be viewed as function applications. The node labeled + represents the application of the operator + to a pair of children. Similarly, the node labeled if represents the application of an operator if to a triple formed by its children (for type checking, it does not matter that either the then or the else part will be evaluated, but not both).\r\n[object]CD Subject Test - 3/Q26_exp.PNG[/object:361:347:] \r\nFrom the body of the function length, we can infer its type. Consider the children of the node labeled if, from left to right. Since null expects to be applied to lists, x must be a list. Let us use variable α as a placeholder for the type of the list elements, that is, x has type list of α.”\r\nIf null(x) is true, then length(x) is 0. Thus, the type of length must be “function from list of α to integer.” This inferred type is consistent with the usage of length in the else part, length(tl(x) + 1).	1		
+A	1	None of these		0		
+A	1	[object]CD Subject Test - 3/Q26_opt_A.PNG[/object:324:392:]		0		
+A	1	[object]CD Subject Test - 3/Q26_opt_B.PNG[/object:367:404:]		0		
+Q	1	Consider the following relation table:\r\n[object]CD Subject Test - 3/Q7.PNG[/object:379:186:]\r\nWhich one is the precedence function table for the above Relation table?		S	1		0	0	0	0
+A	1	[object]CD Subject Test - 3/Q7_opt_a.PNG[/object:457:74:]	:\r\nThere are four terminals id, *, + and $; hence, create 8 symbols fid, gid, f+, g+, f*, g*, f$ and g$. As there are no ≐ relations, each symbol is treated as a separate group. Now construct diagraph as shown in figure with each symbol as a node, that is, 8 nodes as follows.\r\nTo get the precedence function f(id), start from node fid, traverse all possible paths from fid. The path must start with fid and can end anywhere (need not be f$ or g$).\r\nFor example, from node fid there are four possible paths as follows:\r\n\tf¬id – g$ where path length is 2\r\n\tfid – g* – f+ – g$ where path length is 3\r\n\tfid – g* – f+ – g+ – f$ where path length is 4\r\n\tfid – g+ – f$ where path length is 3\r\n[object]CD Subject Test - 3/Q7_exp.PNG[/object:559:467:]	1		
+A	1	[object]CD Subject Test - 3/Q7_opt_c.PNG[/object:464:73:]		0		
+A	1	[object]CD Subject Test - 3/Q7_opt_b.PNG[/object:465:74:]		0		
+A	1	None of these		0		
+Q	1	Consider the following SDD:\r\nA → A[sub]1[/sub]Y{A.a = g(A[sub]1[/sub].a, Y.y)}\r\nA → X{A.a = f(X.x)}\r\nWhere f and g take as arguments whatever attributes they are allowed to access. Which one of the following is correct?		S	1		0	0	0	0
+A	1	It contains only synthesized attributes	Here, A.a is the synthesized attribute of left-recursive non-terminal A, and X and Y are single grammar symbols with synthesized attributes X.x and Y.y respectively. These could represent a string of several grammar symbols, each with its own attribute(s), since the schema has an arbitrary function g computing A.a in the recursive production and an arbitrary function f computing A.a in the second production. In each case, f and g take as arguments whatever attributes they are allowed to access if the SDD is S-attributed.	1		
+A	1	It contains only L-attributed definitions		0		
+A	1	It contains both of them		0		
+A	1	It does not contain left recursion		0		
+Q	1	Consider the following SDT:\r\nS → while({L1 = new( ); L2 = new( ); C.false = S.next; c.true = L2;}\r\n        C) {S[sub]1[/sub].next = L1;}\r\n         S[sub]1[/sub] {S.code = label || L1 || C.code || label || L2 || S[sub]1[/sub].code;}\r\n\tThe above constructs used in SDT can be interpreted as:\r\n•\tThe function new generates new labels.\r\n•\tThe variables L1 and L2 hold labels that we need in the code. L1 is the beginning of the code for the while-statement, and we need to arrange that S1 jumps after it finishes. That is why we set S1.next to L1. L2 is the beginning of the code for S1, and it becomes the value of C.true, because we branch there when C is true.\r\n•\tNotice that C.false is set to S.next, because when the condition is false, we execute whatever code must follow the code for S.\r\n•\tWe use || as the symbol for concatenation of intermediate code fragments. The value of S.code thus begins with the label L1, then the code for condition C, another label L2, and the code for S1.\r\n\tWhich of the following is incorrect?		S	2		0	0	0	0
+A	1	The SDT is L-attributed	This SDD is L-attributed. When we convert it into an SDT, the only remaining issue is how to handle the labels L1 and L2, which are variables, and not attributes. If we treat actions as dummy non-terminals, then such variables can be treated as the synthesized attributes of dummy non-terminals. Since L1 and L2 do not depend on any other attributes, they can be assigned to the first action in the production. The resulting SDT with embedded actions that implements this L-attributed definition	1		
+A	1	There are only inherited attributes and no synthesized attribute		0		
+A	1	Since L1 and L2 are assigned to the first-action in the production hence the SDT is L-attributed		0		
+A	1	C.true labels the beginning of the code that must be executed if C is true.		0		
+Q	1	Consider the following statement in context of LR parser:\r\nI.\tLR parser can be constructed to recognize virtually all programming language\r\nconstruct for which context free grammar can be written.\r\nII.\tLR parser method is most general non backtracking shift reduce parsing method known.\r\nIII.\tThe class of grammar that can be parsed using LR method is proper superset of class of grammar that can be parsed with predictive parsers.\r\nIV.\tLR parser cannot detect syntactic error. \r\nWhich one of the following is true?		S	1		0	0	0	0
+A	1	(I) (II) and (III) only are correct	I.\tProgramming languages which can be written in CFG can be parsed by LR parsers in linear time.\r\n\r\nII.\tLR parsers are non backtracking and they parse on shift and reduce principle. Shift-reduce parsing attempts to construct a parse tree for an input string beginning at the leaves and working up towards the root. In other words, it is a process of “reducing” (opposite of deriving a symbol using a production rule) a string w to the start symbol of a grammar.\r\n\r\nIII.\t LR parsing is most general non-back tracking shift reduce parsing. The class of grammars that can be parsed using LR methods is a proper superset of the class of grammars that can be parsed with predictive parsers \r\nLL (1) grammars ⊆ LR (1)) grammars\r\n\r\n\r\nIV.\tAn LR parser can detect a syntactic error as soon as it is possible to do so on a left-to-right scan of the input.	1		
+A	1	(I) (II) (III) and (IV) are correct		0		
+A	1	(I) is false but (II) (III) and (IV) is correct		0		
+A	1	(I) (II) are false but (III) (IV) is correct		0		
+Q	1	Consider the following statements :\r\n\tS1: While parsing the LL(1) parser keeps the leftmost symbol of RHS on top of the stack.\r\n\tS2: The least powerful parser is LR(0) while the most powerful parser is CLR(1)\r\n\tS3: SLR(1) has less no of reduce moves than LR(0)\r\nWhich of the above statement/s is/ are true?		S	2		0	0	0	0
+A	1	S1, S2 and S3	[u]Justification for S1:[/u]\r\nLL(1) is a top down parser. \r\n\r\nTop-down parsers start parsing from the start symbol. The strings are derived from the start symbol by repeatedly replacing a non-terminal (initially the start symbol) by the right side of a production, for that non-terminal. \r\n\r\nSince we use stack as a data structure so objects are inserted and removed according to the last-in first-out (LIFO) principle. The leftmost symbol of RHS is the first symbol so it must be kept in the top of stack so that it can be parsed according to Top-down parser's way of parsing.\r\n\r\n[u]Justification for S2:[/u]\r\nFrom the diagram below we can see that CLR(1) has more power compared to other parser while LR(0) has the least\r\n[object]CD Subject Test - 3/q33_exp.PNG[/object:616:444:]\r\n \r\n[u]Justification for S3:[/u]\r\nSince SLR(1) has less number of reduce moves compared to LR(0) this is the reason why SLR(1) is more powerful SLR(1) is more powerful as it detects errors faster compared to LR(0).	1		
+A	1	S1 and S2		0		
+A	1	Only S1		0		
+A	1	None of these		0		
+Q	1	Consider the following statements:\r\nS1: A syntax tree should not have keywords as leaves.\r\nS2: A syntax tree is a condensed form of parse tree.\r\n\tWhich of the above statement/s is/are true?		S	2		0	0	0	0
+A	1	Both S1 & S2	The parse tree is a concrete representation of the input. The parse tree retains all of the information of the input. The empty boxes represent white space, i.e. end of line. For example for some grammar this is the parse tree\r\n             [object]CD Subject Test - 3/Q27_exp_1.PNG[/object:574:548:]\r\nAST\r\nThe AST is an abstract representation of the input. Notice that parents are not present in the AST because the associations are derivable from the tree structure. The syntax tree for the above grammar is given below:\r\n[object]CD Subject Test - 3/Q27_exp_2.PNG[/object:218:233:]	1		
+A	1	Only S1		0		
+A	1	Only S2		0		
+A	1	Neither S1 nor S2		0		
+Q	1	Consider the grammar below:\r\nP → ( op C\r\nC → ) | EC\r\nE → ( op C | id		S	1		0	0	0	0
+A	1	The grammar is both LR(0) & SLR(1)	We augment the grammar with the transition S → P\t.The canonical collection of LR(0) items is given as follows:\r\n\t [object]CD Subject Test - 3/Q17_exp.PNG[/object:652:416:]\r\nNo state contains both productions of form A → α ∙ αβ and productions of the form B → γ ∙ , so no shift reduce conflict exists. All states containing productions of the form B → γ ∙ contain only one such production, and thus no reduce-reduce conflict exist.	1		
+A	1	The grammar is not LR(0)		0		
+A	1	The grammar is not SLR(1)		0		
+A	1	The grammar is neither LR(0) nor SLR(1)		0		
+Q	1	Consider the input string ‘a + b * c’ is being parsed by an operator precedence parser. At a certain instance the stack pointer and the pointer in the i/p buffer is shown as below\r\n\r\n[object]CD Subject Test - 3/Q6.PNG[/object:199:91:]\r\nWhat is the action taken by the operator precedence parser at this instance?\r\n\r\nNote: Given: $  <∙  a,   a  ∙>  +,    $  <∙  +,    +  <∙  b,    b  <∙  *,    +  ∙>  *,      *  <∙  c,          c  <∙  $,    *  <∙  $,     +  <∙  $.		S	1		0	0	0	0
+A	1	Shift * because + ∙>  *	1.Initially, stack contains only $ and input buffer contains w$ where w is input string\r\n2.Repeat forever\r\na.Let “a” be the top element on stack and “b” is the current element pointed by the input pointer, that is, the look ahead symbol\r\nb.If a < b or a = b, push b onto the stack and increment input pointer.(shift action)\r\nc.If a > b then (reduce action) repeat Pop the stack until the top of the stack is < to the terminal most recently popped\r\nd.If a = b = $, announces successful completion\r\n[object]CD Subject Test - 3/Q6_exp.PNG[/object:557:332:]	1		
+A	1	Pop * because *  <∙  $		0		
+A	1	Shift * because *  ∙>  +		0		
+A	1	Cannot be determined		0		
+Q	1	Consider the LR(0), LR(k), LR(1) and SLR(1) grammars then which of the following about these grammar is true?		S	1		0	0	0	0
+A	1	LR(0) ⊂ SLR(1) ⊂ LR(1) ⊂ LR(k)	LR(0) is a superset of SLR(1). Both of them just differ in the placement of reduce moves.\r\nBecause of the addition of lookaheads LR(1) is a better parser compared to first two.\r\n\t\tLR(k) is a subset of LR(1) parser.	1		
+A	1	LR(0) ⊂ LR(k) ⊂ LR(1) ⊂ SLR(1)		0		
+A	1	SLR(1) ⊂ LR(0) ⊂ LR(1) ⊂ LR(k)		0		
+A	1	LR(k) ⊂ LR(0) ⊂ LR(1) ⊂ SLR(1)		0		
+Q	1	Consider the NFA given below:\r\n           [object]CD Subject Test - 3/Q1.PNG[/object:544:215:]\r\n\tWhat is the language accepted by the above NFA:		S	1		0	0	0	0
+A	1	L= {w | w contains either a pair of b’s separated by exactly 2n + 2 consecutive a’s (for some n ≥ 1), or a pair of a’s separated by exactly 2m + 1 consecutive b’s (for some m ≥ 1)}	The above NFA for the set of strings over the alphabet ∑ = {a, b} which contain either a pair of b’s separated by exactly 2n + 2 consecutive a’s (for some n ≥ 1) or a pair of a’s separated by exactly 2m + 1 consecutive b’s (for some m ≥ 1).\r\nEg of strings that should be accepted by this NFA:\r\n\taaabbba, baaaaba, ababaaaaaab.\r\nEg of strings that should not be accepted:\r\n\t abbbba, ababaaab, aba.	1		
+A	1	L = {w | w contains either at least a pair of a’s ending with b or at least three b’s ending with a}		0		
+A	1	None of these		0		
+A	1	L = {w | w ends either with b or a}		0		
+Q	1	If a symbol is implemented using hierarchical list then the performance is proportional to:		S	1		0	0	0	0
+A	1	(m + n) log n	Binary search tree is a more efficient approach to symbol table organization. First the name is searched in the tree if it exists, then it is ignored. If it does not exist, then a new record is created for the new name and is inserted as a leaf node. This organization follows a lexicographical order, that is, all the names accessible from namei with value less than namei are found by following a left link. Similarly, all the names accessible from namei that follow namei in alphabetical order are found by following the right link. The expected time needed to enter n names and to make m queries is proportional to (m + n)log2n. So for a greater number of records (higher n), this method had advantages over linear list organization.	1		
+A	1	n		0		
+A	1	n[sup]2[/sup]		0		
+A	1	n logn		0		
+Q	1	Let the SDT be:\r\n\tS → AB {A.S = B.S}\r\n\tThe above SDT is		S	1		0	0	0	0
+A	1	None of these	Not S-attributed as it is using the value from its parent.\r\n\tNot L-attributed as it is using the right sibling.	1		
+A	1	S-attributed		0		
+A	1	L-attributed		0		
+A	1	Both of them		0		
+Q	1	The DAG for the following statement is:\r\na = (b + c) + (d – c) + a / (d – c) + (b + c)		S	1		0	0	0	0
+A	1	[object]CD Subject Test - 3/Q20_opt_A.PNG[/object:191:321:]	Algorithm for construction of DAG:\r\nIn construction process of DAG we process each statement and categorize it to one of the following cases:\r\ni.\ta = b op c\r\nii.\ta = op b\r\niii.\ta = b\r\niv.\tRelational operators are treated as case(i) for example if i ≤ 20 goto l1¬ considered similar to case (ii) with ‘a’ undefined.\r\nInitially we assume there are no nodes, and a node is undefined for all arguments and does the following steps:\r\n1.\tFor case(i)\r\na.\tIf node(b) and node(c) are undefined, create leafs labeled ‘b’ and ‘c’ respectively; let node(b) and node(c) be these nodes.\r\nb.\tFind if there is a node labeled op, with left child as node(b) and right child as node(c); if found return this node; otherwise, create a node and let this be ‘n’.\r\nc.\tDelete ‘a’ from the list of attached identifiers for node(a). Append ‘a’ to the list of attached identifiers for the node n found in (b) and set node(a) to n.\r\n2.\tFor case(ii)\r\na.\tIf node(a) is undefined, create a leaf labeled ‘b;; let node(b) be the node.\r\nb.\tFind if there is a node labeled op, whose lone child is node(b); if so, return this node otherwise create a node and let this be ‘n’.\r\nc.\tDelete ‘a’ from the list of attached identifiers for node(a). Append ‘a’ to the list of attached identifiers for the node n found in (b) and set node(a) to n.\r\n3.\tFor case(iii)\r\na. node(b) is an existing node and let it be n.\r\nb. Delete ‘a’ from the list of attached identifiers for node(a). Append ‘a’ to the list of attached identifiers for the node n found in (a) and set node(a) to n.\r\n\r\nSo following the above algorithm we get the below DAG:\r\n[object]CD Subject Test - 3/Q20_exp.PNG[/object:320:347:]	1		
+A	1	[object]CD Subject Test - 3/Q20_opt_B.PNG[/object:192:250:]		0		
+A	1	[object]CD Subject Test - 3/Q20_opt_C.PNG[/object:245:202:]		0		
+A	1	None of these		0		
+Q	1	The grammar\r\nS → aSb | SS | ∊ is ambiguous as it has:		S	1		0	0	0	0
+A	1	Two RMD’s for ‘ab’		0		
+A	1	One LMD and one RMD for ‘ab’		0		
+A	1	All of these		0		
+A	1	Two LMD’s for ‘ab’ and two RMD’s for ‘ab’	[object]CD Subject Test - 3/Q2_exp.PNG[/object:522:346:]\r\nThis leads to the grammar being ambiguous. However even if any one of the options would have occurred the grammar would have been ambiguous.	1	1	
+Q	1	The two basic operations that are often performed with the symbol table are:		S	1		0	0	0	0
+A	1	Insert and lookup	Insert and lookup are two basic operation performed by symbol table. Insert- adds new entries while lookup- find existing entries. Every time the compiler finds a new identifier in the source code during the lexical analysis phase, it needs to check if that identifier is in the table, if not it needs to store it there. Every insertion operation is always preceded with search operation during lexical analysis phase.	1		
+A	1	Set and reset		0		
+A	1	Set and insert		0		
+A	1	Reset and lookup		0		
+Q	1	What is the output of the following program assuming that there are call by reference and dynamic scoping?\r\n[object]CD Subject Test - 3/Q30.PNG[/object:217:261:]		S	2		0	0	0	0
+A	1	20, 7	[object]CD Subject Test - 3/Q30_exp.PNG[/object:406:304:]	1		
+A	1	24, 7		0		
+A	1	33, 3		0		
+A	1	7, 24		0		
+Q	1	Where does the compiler keep track of all the scope and binding information about identifiers?		S	2		0	0	0	0
+A	1	Symbol Table	Compiler uses symbol table to keep track of scope and binding information about names. Symbol table is changed every time a name is encountered in the source; changes to table occur\r\n•\tif a new name is discovered\r\n•\tif new information about an existing name is discovered\r\nSymbol table must have mechanism to:\r\n•\tadd new entries\r\n•\tfind existing information efficiently	1		
+A	1	Heap		0		
+A	1	Stack		0		
+A	1	Activation record		0		
+Q	1	Which of the following grammar is LR(1)?		S	1		0	0	0	0
+A	1	Both (a) and (b)	The canonical collection of LR(1) items for the grammar given below is:\r\n[object]CD Subject Test - 3/Q13_exp_1.PNG[/object:233:184:]\r\n[object]CD Subject Test - 3/Q13_exp_2.PNG[/object:560:497:]\r\nWe can see that there are no conflicts i.e neither Shift reduce nor Reduce reduce so the above grammar is LR(1)\r\nThe cannonical collection of LR(1) items for the grammar given below is:\r\n[object]CD Subject Test - 3/Q13_exp_3.PNG[/object:297:146:]\r\n[object]CD Subject Test - 3/Edit_3.png[/object:617:430:]\r\nFor the above collection of canonical LR(1) items also we can see there are no conflicts so the grammar is LR(1)	1		
+A	1	S → aSa, S → aSb, S → c		0		
+A	1	Neither (a) nor (b)		0		
+A	1	S → aSb, S → bSb, S → a, S → b		0	1	

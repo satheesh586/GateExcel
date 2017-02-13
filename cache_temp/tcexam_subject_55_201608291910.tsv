@@ -1,0 +1,22 @@
+M=MODULE	module_enabled	module_name
+S=SUBJECT	subject_enabled	subject_name	subject_description
+Q=QUESTION	question_enabled	question_description	question_explanation	question_type	question_difficulty	question_position	question_timer	question_fullscreen	question_inline_answers	question_auto_next
+A=ANSWER	answer_enabled	answer_description	answer_explanation	answer_isright	answer_position	answer_keyboard_key
+
+M	1	Compiler Design
+S	1	CD Subject Test - 3 Common Q 3	Compiler Design – 3 (Subject Test)
+Q	1	For the same expression consider the following statements regarding the three representations of it as three address code:\r\nS1: Triples are inefficient representation since it does not give the freedom of moving the code.\r\nS2: Out of all the three representations of 3-address code i.e., quadruples, triples and indirect triples, only indirect triples does not have any kind of disadvantage.\r\n\tWhich one of the following is correct?		S	2		0	0	0	0
+A	1	Neither S1 nor S2	We cannot say triples are an inefficient representation just because it does not allow freedom of moving the code. One of the advantages that triples provide is that a lot of space is not wasted compared to quadruples.\r\nAlso we cannot say that indirect triples does not have any kind of disadvantage as it involves two memory access:\r\n→ We first have to go to the pointer for the instruction\r\n→ The pointer then will point to the instruction.	1		
+A	1	Only S1		0		
+A	1	Only S2		0		
+A	1	Both S1 and S2		0		
+Q	1	The triple representation for the following expression:\r\na = b* - (c – d) + b – (c – d)\r\n\tnote that U represents unary minus.		S	2		0	0	0	0
+A	1	[object]CD Subject Test - 3/Q22_opt_B.PNG[/object:444:217:]	In triples there are only three fields, one for the operation and the remaining two for operands that may have a variable or a constant or the statement position number that computes the value of the operand. Since there are only three fields, it is called “triples”.\r\nParenthesized numbers represent the position number of the triple structure, while symbol-table pointers are represented by the names themselves. Since the operands represent two different entries, the fields can be encoded in a proper manner. For example, in case of copy statement a:= t1, where t1 is computed at some position (i) then the triplet entries are “=” is placed in the first field, ‘a’ in the second field and (i) in the third field. For a ternary operation like a[i]:= b, it requires two entries in the structure. The first entry finds the position of i with reference to ‘a’ and then the actual copy \r\nstatement as given below:\r\n[object]CD Subject Test - 3/Q22_exp.PNG[/object:616:372:]	1		
+A	1	None of these		0		
+A	1	[object]CD Subject Test - 3/Q22_opt_A.PNG[/object:445:171:]		0		
+A	1	[object]CD Subject Test - 3/Q22_opt_C.PNG[/object:444:199:]		0		
+Q	1	Consider we are going to convert the statement to three address code:\r\na = b* - (c – d) + b* - (c – d)\r\n\tWhich one of the following represents appropriate three address code:		S	2	1	0	0	0	0
+A	1	[object]CD Subject Test - 3/Q21_opt_A.PNG[/object:312:246:]	A quadruple is a record structure with four fields. The first field is to store the operator. The second and third fields are for the operands used in the operation, and the fourth field is for the result. For example, the three address statement A = B op C is written by placing op in the first field, that is operator, B and C are placed in the second and third fields, that is, operand 1 and operand 2 respectively, and A in fourth field, that is, result. If the operator is unary, then the third field is not used.\t\r\n[object]CD Subject Test - 3/Q21_exp.PNG[/object:311:245:]	1		
+A	1	[object]CD Subject Test - 3/Q21_opt_B.PNG[/object:314:146:]		0		
+A	1	[object]CD Subject Test - 3/Q21_opt_C.PNG[/object:314:169:]		0		
+A	1	Both (a) & (b)		0		

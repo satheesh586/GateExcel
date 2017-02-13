@@ -1,0 +1,82 @@
+M=MODULE	module_enabled	module_name
+S=SUBJECT	subject_enabled	subject_name	subject_description
+Q=QUESTION	question_enabled	question_description	question_explanation	question_type	question_difficulty	question_position	question_timer	question_fullscreen	question_inline_answers	question_auto_next
+A=ANSWER	answer_enabled	answer_description	answer_explanation	answer_isright	answer_position	answer_keyboard_key
+
+M	1	Theory of Computation
+S	1	TOC Topic Test - 3	Regular Expressions and Conversions, Finding whether a given language is Regular, Pumping Lemma
+Q	1	Consider the following statements\r\nS1: Let L[sub]4[/sub] = L[sub]1[/sub].L[sub]2[/sub].L[sub]3[/sub] , if L[sub]1[/sub] and L[sub]2[/sub] are regular and L[sub]3[/sub] is not regular. It is possible that L[sub]4[/sub] is regular.\r\nS2: L[sub]1[/sub] ⊆ L ⊆ L[sub]2[/sub] , where L[sub]1[/sub] & L[sub]2[/sub] are regular, then L must be regular.\r\n\r\nWhich of the following is TRUE?		S	2		0	0	0	0
+A	1	S1 is TRUE and S2 is FALSE	Given,\r\nS1: L1, L2 are Regular, L3 is not Regular\r\n    Suppose L1= ø\r\n    L4 = ø. L2. L4\r\n    L4 = ø\r\n    Therefore, S1 is TRUE\r\nS2: \r\n    L1 ⊆ L ⊆ L2\r\n    False, ø ⊆ {a[sup]n[/sup]b[sup]n[/sup]/n≥0} ⊆ {a,b}*	1		
+A	1	S1 is TRUE and S2 is TRUE		0		
+A	1	S1 is FALSE and S2 is TRUE		0		
+A	1	S1 is FALSE and S2 is FALSE		0		
+Q	1	Consider the following statements,\r\n\r\nS1: L[sub]a[/sub] = {a[sup]n[/sup]| n>=0}.{b[sup]n[/sup]| n>=0}.{c[sup]n[/sup]| n>=0} then L[sub]a[/sub] is\r\nS2: L[sub]b[/sub] = { uv| u∈L[sub]1[/sub], v∈L[sub]1[/sub][sup]R[/sup]}, L[sub]1[/sub]={a[sup]n[/sup]│n≥0} then L[sub]b[/sub] is\r\n\r\nWhich of the following is TRUE?		S	2		0	0	0	0
+A	1	L[sub]a[/sub] is regular and L[sub]b[/sub] is regular	S1)\r\nL[sub]1[/sub] = {ε, a, aa, aaa, ...}\r\nL[sub]2[/sub] = {ε, b, bb, bbb, …..}\r\nL[sub]3[/sub] = {ε, c, cc, ccc, ….}\r\nL[sub]a[/sub] = {a,b,c,ab,ac,bc,abc,........}\r\nL[sub]a[/sub] = {a[sup]m[/sup]b[sup]n[/sup]c[sup]k[/sup]/m,n,k≥0}\r\nL[sub]a[/sub] is Regular\r\n\r\nS2:\r\nuЄL[sub]1[/sub]\r\nvЄL[sub]1[/sub][sup]R[/sup]\r\nL[sub]1[/sub] is regular\r\nL[sub]1[/sub][sup]R[/sup] is regular \r\nL[sub]1[/sub]={ε ,a,aa,aaa,.....}\r\nL[sub]1[/sub][sup]R[/sup]={ε ,a,aa,aaa,.....}\r\nL[sub]b[/sub]= L1.L1[sup]R[/sup] = { ε ,a,aa,aaa,...} = L[sub]1[/sub] \r\nSo, L[sub]b[/sub] is regular	1		
+A	1	L[sub]a[/sub] is Regular and L[sub]b[/sub] is Context-free		0		
+A	1	L[sub]a[/sub] is Context-free and L[sub]b[/sub] is Regular		0		
+A	1	L[sub]a[/sub] is context-free and L[sub]b[/sub] is Context-free		0		
+Q	1	Consider the following statements,\r\n\r\nS1: Let L[sub]1[/sub],L[sub]2[/sub],L[sub]3[/sub],..L[sub]n[/sub]... are infinite number of regular languages, \r\n[size=x-large]∪[/size][sub](i≥1)[/sub] L[sub]i[/sub] = L[sub]1[/sub] ∪ L[sub]2[/sub] ∪ L[sub]3[/sub] ∪ … ∪ L[sub]n[/sub] ∪… is always regular\r\n\r\nS2: If L is Regular Language, then L[sub]1[/sub] = {uv | u ∈ L,v does not belongs to L and |v|=2}  is also regular		S	2		0	0	0	0
+A	1	S1 is FALSE, S2 is TRUE	S1 is FALSE:\r\nLet us consider the languages \r\nL1={ab}\r\nL2={aabb}\r\nL3={aaabbb}\r\n.\r\n.\r\n.\r\nL[sub]n[/sub]={aaa… (n times) bbbb… (n times)}\r\n.\r\n.\r\n.\r\nWe know each of the above languages is a finite language and hence each language is regular.\r\nBut union of all these languages become language L = {a[sup]n[/sup] b[sup]n[/sup]/n>=1}. This cannot be regular language because we need to maintain the count for number of a’s and the number of b’s and we need a stack to maintain the count. \r\n\r\nS2 is TRUE:\r\nGiven L is regular language and as |v| = 2 we will have finite number of strings in this the language and it is also regular.\r\nWe know that regular languages are closed under concatenation. So, L1 is also regular	1		
+A	1	S1 is TRUE, S2 is TRUE		0		
+A	1	S1 is TRUE, S2 is FALSE		0		
+A	1	S1 is FALSE, S2 is FALSE		0		
+Q	1	Consider the following statements,\r\n\r\nS1: Pumping Lemma is used for finding whether given language is Regular Language or not\r\nS2: {a[sup]m[/sup]b[sup]n[/sup]| 1 <= n <= m <= 2[sup]|GATE|[/sup]} is regular language, where |GATE| is the length of the string GATE. \r\nFind which of the following is TRUE?		S	1		0	0	0	0
+A	1	S1 is FALSE and S2 is TRUE	S1: Pumping lemma is [b]used for proving non-regularity[/b]\r\nS2: m and n are finite numbers. Hence the language is finite language. Therefore it is regular	1		
+A	1	S1 is TRUE and S2 is TRUE		0		
+A	1	S1 is TRUE and S2 is FALSE		0		
+A	1	S1 is FALSE and S2 is FALSE		0		
+Q	1	Consider the following statements:\r\ni) (01)*0 = 0(10)*\r\nii) (0+1)*01(0+1)*+ 1*0* = (0+1)*\r\niii) Let r[sub]1[/sub] & r[sub]2[/sub] be two regular expressions then (r[sub]1[/sub] + r[sub]2[/sub])* = (r[sub]1[/sub]*(r[sub]1[/sub] + r[sub]2[/sub])*)*\r\nWhich of the following is TRUE?		S	2		0	0	0	0
+A	1	All are TRUE	(i) is true following the associativity property\r\n(ii) (0+1)*01(0+1)*+ 1*0* generates all the strings over {0,1}*\r\n(iii) (r1 + r2)* = (r1*(r1 + r2)*)*\r\nWe know that (a*b*)* = (a+b)*\r\nTherefore, (r1*(r1 + r2)*)* = (r1 + r1 + r2)* = (r1 + r2)*	1		
+A	1	Only (i) is TRUE		0		
+A	1	Only (i) & (ii) is TRUE		0		
+A	1	Only (i) & (iii) is TRUE		0		
+Q	1	Consider the Regular Expression\r\nr[sub]1[/sub] ∶ aaa + (aa)[sup]+[/sup]\r\nIf the language generated by the regular expression r[sub]1[/sub]  is L(r[sub]1[/sub]), then number of states in minimal DFA which accepts L'(r[sub]1[/sub]) (i.e. Complement of L(r[sub]1[/sub])) is		S	2		0	0	0	0
+A	1	6	[object]TOC Topic Test 3/Q9-exp.png[/object:546:360:]	1		
+A	1	5		0		
+A	1	4		0		
+A	1	3		0		
+Q	1	Consider the regular expressions r[sub]1[/sub] = (0*1), r[sub]2[/sub] = (0*1*)*. Which of the following is correct?		S	1		0	0	0	0
+A	1	L(r[sub]1[/sub]) ⊂ L(r[sub]2[/sub])	r[sub]1[/sub] = (0*1), r[sub]2[/sub] = (0*1*)*\r\nL(r[sub]1[/sub]) = {1, 01, 001, 0001,...}\r\nL(r[sub]2[/sub]) = {Ԑ, 0, 1, 01, 10, 11, 00, ...}\r\n∴ L(r1) ⊂ L(r2)	1		
+A	1	L(r[sub]1[/sub]) = L(r[sub]2[/sub])		0		
+A	1	L(r[sub]1[/sub]) ⊃ L(r[sub]2[/sub])		0		
+A	1	None of the above		0		
+Q	1	Consider the two regular expressions\r\nr[sub]1[/sub] ∶ (1*011*)*(0+ϵ) + 1*(0+ϵ)\r\nr[sub]2[/sub] ∶ (1+01)*(0+ϵ)\r\nWhich of the following is TRUE?		S	2		0	0	0	0
+A	1	L(r[sub]1[/sub]) = L(r[sub]2[/sub])	r1: (1*011*)*(0+Ԑ) + 1*(0+Ԑ)\r\nr2: (1+01)*(0+Ԑ)\r\nr2 generates strings which does not contain two consecutive zero’s. \r\nObserving  r2, whenever a 0 appears it must be followed immediately by a 1. Such a string may be preceded and/or followed by an arbitrary number of 1’s.\r\nL(r[sub]2[/sub]) = {ϵ, 0, 1, 11, 10, 01, 111, 110, 101, 010, 011, …}    \r\n\r\nr1 =  (1*011*)*(0+Ԑ)+1*(0+Ԑ) can be written as ((1*011*)*+1*)(0+Ԑ)\r\nL(r[sub]1[/sub]) = {ϵ,0,1,11,10,01,111,110,101,010,011,…}    \r\nWe can see that every string generated by r1 is also generated by r2. And every string generated by r2 is also generated by r1. \r\n\r\n∴L(r1) = L(r2)	1		
+A	1	L(r[sub]1[/sub]) ⊂ L(r[sub]2[/sub])		0		
+A	1	L(r[sub]2[/sub]) ⊂ L(r[sub]1[/sub])		0		
+A	1	None of these		0		
+Q	1	Find the pair of equivalent expressions		S	1		0	0	0	0
+A	1	(0+1)* and (0+1*)*	(0+1*0)* and (0*+1*)*\r\nConsider the string 111, which can be generated by (0*+1* )* but not generated by (0+1*0)*. \r\n\r\n(0*+10*) and  (0+1*0)*\r\nThe regular expression (0*+10*) cannot generate strings containing more than one 1, whereas the regular expression (0+1*0)* does \r\n\r\n(0+1*0)* and (0+1*)*\r\nThe regular expression (0+1*0)* cannot generate strings ending with 1, whereas the regular expression (0+1*)* generates all strings over {0,1}*\r\n\r\n(0+1)* and (0+1*)*\r\nBoth the regular expressions define the same language (0+1)*. So they are equivalent.	1		
+A	1	(0+1*0)* and (0*+1*)*		0		
+A	1	(0*+10*) and (0+1*0)*		0		
+A	1	(0+1*0)* and (0+1*)*		0		
+Q	1	Identify the false statement		S	1		0	0	0	0
+A	1	(0*1*)* = (1*0*1*)* is false	(0*1*)* = (0*1*0*)* = (0+1)* = (0+1*)* is true but given as false.	1		
+A	1	01.ϕ=ϕ is true		0		
+A	1	01+01 = 01 is true		0		
+A	1	01.ϵ = ϵ is false		0		
+Q	1	Let ‘r’ be the regular expression,\r\n\r\nS1: There exists 'x' which satisfies property r + x = x.\r\nS2: There exists 'x' which satisfies property r.x = x\r\n\r\nWhich of the following is TRUE?		S	2		0	0	0	0
+A	1	S[sub]1[/sub] is FALSE, S[sub]2[/sub] is TRUE	S1: There is no 'x' which can satisfy this property\r\nS2: If x = Ø then r.Ø = Ø , Hence this statement is true	1		
+A	1	S[sub]1[/sub] is TRUE, S[sub]2[/sub] is TRUE		0		
+A	1	S[sub]1[/sub] is FALSE, S[sub]2[/sub] is FALSE		0		
+A	1	S[sub]1[/sub] is TRUE, S[sub]2[/sub] is FALSE		0		
+Q	1	Let us consider an operation RM(L) is defined as in the sequence \r\n1. Remove all the even length strings from L.\r\n2. For each odd-length-string, remove the middle character.\r\nFor example, if L = {001,0010,01010}, then RM(L) = {01,0110}. That is, even-length string 0010 is deleted, the middle character of 001 is removed to make 01, and the middle character of 01010 is removed to make 0110.\r\nIt turns out that if L is a regular language, RM(L) may or may not be regular. \r\n\r\nConsider two languages L[sub]1[/sub]  and L[sub]2[/sub]  over ∑ ={0,1}\r\nL[sub]1[/sub]: The language of regular expression (01)* 0\r\nL[sub]2[/sub]: The language of regular expression (0+1)*1(0+1)*\r\nWhich of the following is/are TRUE?		S	2		0	0	0	0
+A	1	RM(L[sub]1[/sub]) is not regular but RM(L[sub]2[/sub]) is regular	Given L[sub]1[/sub]: The language of regular expression (01)* 0\r\nL[sub]1[/sub] = {0,010,01010,0101010,010101010,…}\r\nTo find RM(L), we throw away all the even-length strings and for each odd-length string, remove the middle character. \r\nWe can see that L[sub]1[/sub]  does not contain any string of even-length. For each odd-length string, after removing the middle character we get the following strings\r\nRM(L[sub]1[/sub]) = {ϵ,00,0110,010010,01011010,…}  \r\nThe language representing the above strings is \r\nRM(L[sub]1[/sub]) = {ww[sup]R[/sup] | w∈{0,1}* and w never starts with 1 and w does not contain two consecutive 0’s} \r\nThis is clearly not a regular language. \r\n\r\nGiven L[sub]2[/sub]: The language of regular expression (0+1)*1(0+1)*\r\nL[sub]2[/sub] = {1,01,11,10,010,011,110,111,0001,0010,0011,…, \r\n\t00100,00101,00110,00111,01100,01101,01110,01111,…}\r\nRemoving all even-length strings gives {1,010,011,110,111,00100,00101,00110,00111,01100,01101,01110,01111,…}\r\nDeleting the middle character gives\r\n{ϵ,00,01,10,11,0000,0001,0010,0011,0100,0101,0110,0111,…}\r\nThe language representing the above set of strings is ((0+1)(0+1))*  which is regular. \r\n\r\n∴RM(L[sub]1[/sub])  is not regular and RM(L[sub]2[/sub])  is regular.	1		
+A	1	Both RM(L[sub]1[/sub]) and RM(L[sub]2[/sub])  are regular		0		
+A	1	RM(L[sub]1[/sub]) is regular but RM(L[sub]2[/sub])  is not regular		0		
+A	1	Neither RM(L[sub]1[/sub]) nor RM(L[sub]2[/sub])  is regular		0		
+Q	1	The regular expression corresponding to the finite automata given below is\r\n[object]TOC Topic Test 3/Q13-question.png[/object:245:211:]		S	2		0	0	0	0
+A	1	(ab*(a+b)a+a)*	[object]TOC Topic Test 3/Q13-exp1.png[/object:611:208:]\r\n[object]Q13-exp2.png[/object:353:158:]\r\n[object]TOC Topic Test 3/Q13-exp2.png[/object:353:158:]\r\n[object]TOC Topic Test 3/Q13-exp3.png[/object:350:133:]\r\n[object]TOC Topic Test 3/Q13-exp4.png[/object:352:140:]\r\n[object]TOC Topic Test 3/Q13-exp5.png[/object:281:121:]\r\n∴R.E.=(ab* (a+b)a+a)*	1		
+A	1	(ab*(a+b)+ϵ)*		0		
+A	1	((ϵ+(a+b)ab*)a)*		0		
+A	1	(ϵ+a(a+b)b*a)*		0		
+Q	1	Which of the following is the correct regular expression for the following DFA\r\n[object]TOC Topic Test 3/Q7-question.png[/object:405:340:]		S	2		0	0	0	0
+A	1	None of these	By observing the DFA, the strings of length not equal to 4 are not accepted and each string accepted by the DFA should have exactly 2 a's and 2 b's. \r\nIt is easy to see that all last row states and last column states are dead states because these states cannot reach the final state. Therefore, these are useless states and can be eliminated.\r\nNow, the finite automata is\r\n[object]TOC Topic Test 3/Q7-exp.png[/object:279:215:]\r\nStrings accepted are = {aabb, abab, abba, baab, baba, bbaa}\r\nRegular expression will be aabb + abab + abba + baab + baba + bbaa	1		
+A	1	(a+b)(a+b)(a+ϵ)(b+ϵ)		0		
+A	1	((a+b)(a+b))*		0		
+A	1	(a+b)[sup]4[/sup]		0		
+Q	1	Which of the following is TRUE?		S	1		0	0	0	0
+A	1	r[sup]+[/sup]∙(r*)[sup]+[/sup] = r[sup]+[/sup]	(Ø*∙Ø)*∙Ø* = Ø\r\nWe know that, Ø* = {Ԑ} \r\n⇒ (Ø*∙Ø)*∙Ø* = ({Ԑ}. Ø)*. Ø*\r\nWe know that, a.Ø = Ø, where a is any regular expression\r\n⇒ ({Ԑ}.Ø)*.Ø* = (Ø)*.Ø*\r\n⇒ {Ԑ}.{Ԑ}\r\n⇒ {Ԑ}\r\nSo this is false. \r\n\r\nif r = Ø then r[sup]+[/sup] = {ϵ}\r\nGiven r = Ø\r\n⇒   r* = {Ԑ}\r\n⇒   r[sup]+[/sup] = { } = Ø\r\nSo this is false. \r\n\r\nIf r = ϵ, then r[sup]+[/sup] ≠ r[sup]*[/sup]  \r\nIf r = ϵ, then r* = r[sup]+[/sup] = {ϵ}\r\nSo this is false.\r\n\r\nr[sup]+[/sup]∙(r[sup]+[/sup])* = r[sup]+[/sup]\r\nr[sup]+[/sup].(r[sup]+[/sup])* ⇒ r[sup]+[/sup].r* ⇒ r[sup]+[/sup]\r\nSo this is true.	1		
+A	1	(ϕ*∙ϕ)*∙ϕ* = ϕ		0		
+A	1	if r = ϕ then r[sup]+[/sup] = {ϵ}		0		
+A	1	If r = ϵ,then r[sup]+[/sup] ≠ r[sup]*[/sup]		0		
